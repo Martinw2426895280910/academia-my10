@@ -1,8 +1,6 @@
 {
   "name": "academia-my10",
-  "version": "1.0.0",
-  "description": "Academia MY 10 - App educativa IA",
-  "engines": {
-    "node": ">=18.x"
-  }
+  "version": "2.0.0",
+  "description": "Academia MY 10 - App educativa IA con Wikipedia y graficas",
+  "engines": { "node": ">=18.x" }
 }
