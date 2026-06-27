@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academia MY 10 - Todo por WhatsApp</title>
+<title>Academia MY 10 · Paso de los Libres</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
@@ -16,850 +16,1049 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--navy);color:var(--text);min-height:100vh;overflow-x:hidden;}
 
-/* PORTADA */
-#portada{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:40px 20px;text-align:center;}
-#portada::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(245,197,24,0.13) 0%,transparent 70%);pointer-events:none;}
-.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:floatP linear infinite;}
-@keyframes floatP{0%{transform:translateY(100vh);opacity:0;}10%{opacity:0.5;}90%{opacity:0.2;}100%{transform:translateY(-10vh) translateX(30px);opacity:0;}}
-.logo-wrap{margin-bottom:32px;animation:fadeDown 0.7s ease both;}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
-.logo-ring{width:110px;height:110px;border-radius:28px;background:linear-gradient(145deg,#1A2A4A,#0D1628);border:2px solid rgba(245,197,24,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto;position:relative;box-shadow:0 0 60px rgba(245,197,24,0.15),0 20px 60px rgba(0,0,0,0.5);}
-.logo-ring::after{content:'';position:absolute;inset:-1px;border-radius:29px;background:linear-gradient(135deg,rgba(245,197,24,0.5),transparent 50%,rgba(245,197,24,0.2));pointer-events:none;}
-.logo-inner{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
-.logo-sub{font-size:0.55rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-top:3px;display:block;}
-.hero-eyebrow{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;animation:fadeUp 0.7s 0.2s ease both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.2rem,7vw,3.8rem);line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px;animation:fadeUp 0.7s 0.3s ease both;}
-.hero-title .gold{background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-desc{font-size:1rem;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:36px;animation:fadeUp 0.7s 0.4s ease both;}
-.hero-desc strong{color:var(--text);}
-.hero-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px;animation:fadeUp 0.7s 0.5s ease both;}
-.hero-pill{background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.2);border-radius:20px;padding:6px 14px;font-size:0.78rem;color:var(--gold2);font-weight:500;}
-.btn-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:16px;padding:18px 36px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);cursor:pointer;transition:all 0.25s;box-shadow:0 8px 32px rgba(245,197,24,0.35);animation:fadeUp 0.7s 0.6s ease both;}
-.btn-cta:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(245,197,24,0.45);}
-.hero-stats{display:flex;gap:28px;justify-content:center;margin-top:48px;flex-wrap:wrap;animation:fadeUp 0.7s 0.7s ease both;}
-.stat-item{text-align:center;}
-.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.stat-lbl{font-size:0.7rem;color:var(--muted);margin-top:2px;}
-.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:0.7rem;letter-spacing:0.1em;animation:fadeUp 0.7s 1s ease both;cursor:pointer;}
-.scroll-arrow{width:20px;height:20px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bounce 1.5s ease infinite;}
-@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0);}50%{transform:rotate(45deg) translateY(5px);}}
+/* ══════════════════════════════
+   PORTADA MEJORADA
+══════════════════════════════ */
+#portada{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:32px 20px 60px;text-align:center;
+}
+#portada::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -5%,rgba(245,197,24,0.18) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 85%,rgba(56,189,248,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 30% at 10% 70%,rgba(167,139,250,0.06) 0%,transparent 50%);
+  pointer-events:none;
+}
 
-/* APP */
+/* Partículas */
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:floatP linear infinite;}
+@keyframes floatP{0%{transform:translateY(110vh) rotate(0deg);opacity:0;}10%{opacity:0.7;}90%{opacity:0.2;}100%{transform:translateY(-10vh) rotate(360deg);opacity:0;}}
+
+/* Badge superior */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,197,24,0.1);
+  border:1px solid rgba(245,197,24,0.3);
+  border-radius:30px;padding:7px 18px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.08em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:24px;animation:fadeUp 0.7s 0.1s ease both;
+}
+.hero-badge span{font-size:1rem;}
+
+/* Logo bloque */
+.logo-block{
+  margin-bottom:28px;animation:fadeDown 0.8s ease both;
+  position:relative;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+.logo-outer{
+  width:120px;height:120px;border-radius:32px;
+  background:linear-gradient(145deg,#14243E,#0A1628);
+  border:2px solid rgba(245,197,24,0.4);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto;position:relative;
+  box-shadow:0 0 80px rgba(245,197,24,0.2),0 24px 60px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.logo-outer::before{
+  content:'';position:absolute;inset:-3px;border-radius:34px;
+  background:linear-gradient(135deg,rgba(245,197,24,0.6),transparent 40%,rgba(245,197,24,0.15));
+  z-index:-1;animation:rotGlow 4s linear infinite;
+}
+@keyframes rotGlow{0%{opacity:0.5;}50%{opacity:1;}100%{opacity:0.5;}}
+
+.logo-my{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:2.1rem;
+  line-height:0.9;letter-spacing:-0.04em;
+  background:linear-gradient(135deg,#F5C518,#FFE066,#C8960A);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.logo-10{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:2.6rem;
+  line-height:0.9;letter-spacing:-0.05em;
+  background:linear-gradient(135deg,#ffffff,#e2e8f0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.logo-sub{
+  position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  border-radius:20px;padding:3px 14px;
+  font-size:0.55rem;font-weight:800;letter-spacing:0.18em;
+  color:var(--navy);white-space:nowrap;text-transform:uppercase;
+}
+
+/* Ciudad */
+.ciudad-tag{
+  margin-top:18px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.78rem;color:var(--muted);font-weight:500;
+  animation:fadeUp 0.7s 0.25s ease both;
+}
+.ciudad-tag .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse2 2s ease infinite;}
+@keyframes pulse2{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+
+/* Headline */
+.hero-titulo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,7vw,3.6rem);
+  line-height:1.04;letter-spacing:-0.03em;
+  margin:28px 0 16px;
+  animation:fadeUp 0.7s 0.3s ease both;
+}
+.hero-titulo .line1{display:block;color:var(--text);}
+.hero-titulo .line2{
+  display:block;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),#F5C518);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+.hero-sub{
+  font-size:0.98rem;color:var(--muted);max-width:460px;
+  line-height:1.75;margin-bottom:28px;
+  animation:fadeUp 0.7s 0.4s ease both;
+}
+.hero-sub strong{color:var(--text);}
+
+/* Grid de materias en portada */
+.materias-portada{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:10px;margin-bottom:36px;max-width:540px;width:100%;
+  animation:fadeUp 0.7s 0.5s ease both;
+}
+@media(max-width:500px){.materias-portada{grid-template-columns:repeat(3,1fr);}}
+.mat-card-hero{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:14px 8px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  transition:all 0.2s;cursor:pointer;
+}
+.mat-card-hero:hover{background:rgba(245,197,24,0.08);border-color:rgba(245,197,24,0.3);transform:translateY(-2px);}
+.mat-card-hero .mico{font-size:1.6rem;line-height:1;}
+.mat-card-hero .mnm{font-size:0.62rem;font-weight:700;color:var(--muted);letter-spacing:0.04em;}
+
+/* Rasgos */
+.features-row{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  margin-bottom:36px;animation:fadeUp 0.7s 0.55s ease both;
+}
+.feat-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:6px 14px;
+  font-size:0.74rem;font-weight:600;color:var(--muted);
+}
+.feat-chip .fi{font-size:0.9rem;}
+
+/* CTA */
+.cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;animation:fadeUp 0.7s 0.6s ease both;}
+.btn-cta-main{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  border:none;border-radius:18px;padding:18px 40px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;
+  color:var(--navy);cursor:pointer;transition:all 0.25s;
+  box-shadow:0 8px 32px rgba(245,197,24,0.4),0 2px 0 rgba(255,255,255,0.2) inset;
+  letter-spacing:-0.01em;
+}
+.btn-cta-main:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(245,197,24,0.5);}
+.btn-cta-main .arrow{transition:transform 0.2s;}
+.btn-cta-main:hover .arrow{transform:translateX(4px);}
+
+.cta-note{font-size:0.72rem;color:var(--muted);}
+.cta-note span{color:var(--gold);}
+
+/* Stats */
+.stats-row{
+  display:flex;gap:0;margin-top:52px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:20px;overflow:hidden;
+  animation:fadeUp 0.7s 0.7s ease both;
+  max-width:480px;width:100%;
+}
+.stat-block{
+  flex:1;padding:18px 12px;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.06);
+}
+.stat-block:last-child{border-right:none;}
+.stat-n{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-l{font-size:0.65rem;color:var(--muted);margin-top:3px;line-height:1.3;}
+
+/* Scroll hint */
+.scroll-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:var(--muted);font-size:0.65rem;letter-spacing:0.12em;
+  animation:fadeUp 0.7s 1.1s ease both;cursor:pointer;
+  text-transform:uppercase;
+}
+.scroll-arr{
+  width:18px;height:18px;
+  border-right:2px solid rgba(245,197,24,0.4);
+  border-bottom:2px solid rgba(245,197,24,0.4);
+  transform:rotate(45deg);
+  animation:arrBounce 1.6s ease infinite;
+}
+@keyframes arrBounce{0%,100%{transform:rotate(45deg) translateY(0);}50%{transform:rotate(45deg) translateY(6px);}}
+
+/* ══════════════════════════════
+   APP SECTION
+══════════════════════════════ */
 #app{background:var(--navy2);min-height:100vh;padding:0 0 80px;}
-.app-topbar{background:rgba(8,14,30,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:99;}
-.tb-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.tb-badge{background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.25);border-radius:6px;padding:2px 8px;font-size:0.65rem;color:var(--gold);font-weight:600;}
-.tb-status{margin-left:auto;font-size:0.68rem;font-weight:600;display:flex;align-items:center;gap:5px;}
-.tb-status::before{content:'●';font-size:0.45rem;animation:blink 1.5s ease infinite;}
+
+.app-topbar{
+  background:rgba(8,14,30,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:12px 20px;display:flex;align-items:center;gap:10px;
+  position:sticky;top:0;z-index:99;
+}
+.tb-logo-wrap{display:flex;align-items:center;gap:9px;}
+.tb-logo-ico{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,#1A2A4A,#0D1628);
+  border:1px solid rgba(245,197,24,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+}
+.tb-logo-txt{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.95rem;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.tb-logo-sub{font-size:0.55rem;color:var(--muted);margin-top:1px;letter-spacing:0.06em;}
+.tb-badge{
+  background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.25);
+  border-radius:6px;padding:2px 8px;font-size:0.62rem;color:var(--gold);font-weight:700;
+}
+.tb-status{
+  margin-left:auto;font-size:0.66rem;font-weight:600;
+  display:flex;align-items:center;gap:5px;
+}
+.tb-status::before{content:'●';font-size:0.44rem;animation:blink 1.5s ease infinite;}
 .tb-status.ok{color:#34d399;}
 .tb-status.err{color:#f87171;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.app-inner{max-width:700px;margin:0 auto;padding:28px 16px;}
-.step-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+.app-inner{max-width:700px;margin:0 auto;padding:24px 16px;}
+
+.step-label{
+  font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);font-weight:800;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.step-label .sn{
+  width:20px;height:20px;border-radius:6px;
+  background:rgba(245,197,24,0.15);border:1px solid rgba(245,197,24,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.65rem;font-weight:800;color:var(--gold);flex-shrink:0;
+}
 .step-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-.mat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:26px;}
+
+.mat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px;}
 @media(max-width:480px){.mat-grid{grid-template-columns:repeat(3,1fr);}}
-.mat-btn{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:14px 6px 12px;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:7px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.68rem;font-weight:600;color:var(--muted);line-height:1.2;text-align:center;}
+.mat-btn{
+  background:var(--card);border:1.5px solid var(--border);border-radius:14px;
+  padding:13px 6px 11px;cursor:pointer;transition:all 0.2s;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.66rem;font-weight:700;
+  color:var(--muted);line-height:1.2;text-align:center;
+}
 .mat-btn .ico{font-size:1.5rem;line-height:1;}
-.mat-btn:hover{border-color:rgba(245,197,24,0.4);color:var(--text);}
-.mat-btn.active{border-color:var(--gold);background:rgba(245,197,24,0.08);color:var(--gold2);box-shadow:0 0 0 3px rgba(245,197,24,0.12);}
-.tipo-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px;}
-.tipo-chip{background:var(--card);border:1.5px solid var(--border);border-radius:22px;padding:8px 15px;font-size:0.76rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;color:var(--muted);cursor:pointer;transition:all 0.18s;}
+.mat-btn:hover{border-color:rgba(245,197,24,0.4);color:var(--text);transform:translateY(-1px);}
+.mat-btn.active{
+  border-color:var(--gold);background:rgba(245,197,24,0.08);
+  color:var(--gold2);box-shadow:0 0 0 3px rgba(245,197,24,0.1);
+}
+
+.tipo-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.tipo-chip{
+  background:var(--card);border:1.5px solid var(--border);border-radius:22px;
+  padding:8px 14px;font-size:0.74rem;font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;color:var(--muted);cursor:pointer;transition:all 0.18s;
+}
 .tipo-chip:hover{border-color:rgba(245,197,24,0.3);color:var(--text);}
 .tipo-chip.active{background:rgba(245,197,24,0.1);border-color:var(--gold);color:var(--gold2);}
-.input-row{position:relative;margin-bottom:14px;}
-.tema-input{width:100%;background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:16px 145px 16px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;color:var(--text);outline:none;resize:none;transition:border-color 0.2s;line-height:1.5;}
+
+.input-row{position:relative;margin-bottom:12px;}
+.tema-input{
+  width:100%;background:var(--card);border:1.5px solid var(--border);border-radius:16px;
+  padding:15px 148px 15px 18px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.95rem;color:var(--text);outline:none;resize:none;
+  transition:border-color 0.2s;line-height:1.5;
+}
 .tema-input:focus{border-color:rgba(245,197,24,0.5);}
 .tema-input::placeholder{color:var(--muted);}
-.btn-gen{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:11px;padding:11px 20px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.8rem;color:var(--navy);cursor:pointer;transition:opacity 0.2s;white-space:nowrap;}
+.btn-gen{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  border:none;border-radius:11px;padding:10px 18px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:0.78rem;
+  color:var(--navy);cursor:pointer;transition:opacity 0.2s;white-space:nowrap;
+}
 .btn-gen:hover{opacity:0.87;}.btn-gen:disabled{opacity:0.45;cursor:not-allowed;}
-.topics-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;min-height:28px;}
-.topic-tag{background:transparent;border:1px dashed var(--border);border-radius:18px;padding:4px 12px;font-size:0.7rem;color:var(--muted);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.18s;}
+
+.topics-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;min-height:26px;}
+.topic-tag{
+  background:transparent;border:1px dashed var(--border);border-radius:18px;
+  padding:4px 11px;font-size:0.68rem;color:var(--muted);cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.18s;
+}
 .topic-tag:hover{border-color:var(--gold);color:var(--gold);}
+
 #resultado{display:none;}
 
-/* RESULTADO CON TABS */
+/* RESULTADO */
 .res-card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:14px;}
-.res-head{padding:13px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.015);}
+.res-head{padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.015);}
 .res-dot{width:28px;height:28px;border-radius:8px;background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.25);display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
-.res-head-title{font-size:0.82rem;font-weight:600;flex:1;}
-.res-head-mat{font-size:0.68rem;font-weight:700;color:var(--gold);background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.2);border-radius:6px;padding:3px 8px;}
+.res-head-title{font-size:0.8rem;font-weight:700;flex:1;}
+.res-head-mat{font-size:0.66rem;font-weight:700;color:var(--gold);background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.2);border-radius:6px;padding:3px 8px;}
+
 .content-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.15);overflow-x:auto;}
-.ctab{flex:1;min-width:80px;padding:11px 8px;font-size:0.68rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;color:var(--muted);background:none;border:none;cursor:pointer;transition:all 0.18s;text-align:center;border-bottom:2px solid transparent;white-space:nowrap;}
+.ctab{flex:1;min-width:78px;padding:10px 6px;font-size:0.67rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;color:var(--muted);background:none;border:none;cursor:pointer;transition:all 0.18s;text-align:center;border-bottom:2px solid transparent;white-space:nowrap;}
 .ctab:hover{color:var(--text);}
 .ctab.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-panel{display:none;padding:20px 18px;}
+.tab-panel{display:none;padding:18px;}
 .tab-panel.active{display:block;}
 .res-body{font-size:0.875rem;line-height:1.9;color:#b8ccec;white-space:pre-wrap;font-family:'Plus Jakarta Sans',sans-serif;}
-.res-body strong{color:var(--text);}
 
-/* GRÁFICAS */
-.chart-wrap{background:rgba(0,0,0,0.25);border-radius:14px;padding:16px;margin-bottom:16px;}
-.chart-title{font-size:0.72rem;font-weight:700;color:var(--gold);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
-.chart-note{font-size:0.67rem;color:var(--muted);margin-top:8px;text-align:center;font-style:italic;}
-canvas{max-height:240px;}
+/* GRAFICAS */
+.chart-wrap{background:rgba(0,0,0,0.25);border-radius:14px;padding:14px;margin-bottom:14px;}
+.chart-title{font-size:0.7rem;font-weight:800;color:var(--gold);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;}
+.chart-note{font-size:0.66rem;color:var(--muted);margin-top:6px;text-align:center;}
+canvas{max-height:230px;}
 
-/* ESQUEMA SVG */
-.schema-wrap{background:rgba(0,0,0,0.3);border-radius:14px;padding:16px;margin-bottom:16px;}
-.schema-title{font-size:0.72rem;font-weight:700;color:var(--gold);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+/* ESQUEMAS */
+.schema-wrap{background:rgba(0,0,0,0.3);border-radius:14px;padding:14px;margin-bottom:14px;}
+.schema-title{font-size:0.7rem;font-weight:800;color:var(--gold);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;}
 .schema-svg{width:100%;border-radius:10px;}
 
 /* FÓRMULAS */
-.formula-box{background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;}
-.formula-eq{font-family:'DM Mono',monospace;font-size:0.95rem;font-weight:500;color:#c4b5fd;min-width:140px;}
-.formula-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.formula-box{background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2);border-radius:12px;padding:13px 15px;margin-bottom:9px;display:flex;align-items:flex-start;gap:13px;}
+.formula-eq{font-family:'DM Mono',monospace;font-size:0.92rem;font-weight:500;color:#c4b5fd;min-width:150px;}
+.formula-desc{font-size:0.76rem;color:var(--muted);line-height:1.6;}
 .formula-desc strong{color:var(--text);}
 
 /* EJERCICIOS */
-.ejercicio-card{background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:14px;padding:18px;margin-bottom:14px;}
-.ejercicio-num{font-family:'DM Mono',monospace;font-size:0.68rem;color:#60a5fa;font-weight:500;margin-bottom:8px;}
-.ejercicio-enunciado{font-size:0.88rem;line-height:1.65;color:var(--text);margin-bottom:12px;font-weight:500;}
-.ejercicio-dato{background:rgba(59,130,246,0.08);border-radius:8px;padding:10px 14px;font-family:'DM Mono',monospace;font-size:0.76rem;color:#93c5fd;margin-bottom:14px;line-height:1.8;white-space:pre-wrap;}
+.ejercicio-card{background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.18);border-radius:14px;padding:16px;margin-bottom:12px;}
+.ejercicio-num{font-family:'DM Mono',monospace;font-size:0.66rem;color:#60a5fa;font-weight:600;margin-bottom:7px;}
+.ejercicio-enunciado{font-size:0.86rem;line-height:1.65;color:var(--text);margin-bottom:11px;font-weight:600;}
+.ejercicio-dato{background:rgba(59,130,246,0.07);border-radius:8px;padding:10px 13px;font-family:'DM Mono',monospace;font-size:0.74rem;color:#93c5fd;margin-bottom:12px;line-height:1.8;white-space:pre-wrap;}
 .input-verify-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
-.ej-input{background:var(--navy2);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-family:'DM Mono',monospace;font-size:0.88rem;color:var(--text);outline:none;flex:1;transition:border-color 0.2s;}
+.ej-input{background:var(--navy2);border:1.5px solid var(--border);border-radius:10px;padding:9px 13px;font-family:'DM Mono',monospace;font-size:0.86rem;color:var(--text);outline:none;flex:1;transition:border-color 0.2s;}
 .ej-input:focus{border-color:#3b82f6;}
 .ej-input::placeholder{color:var(--muted);}
-.btn-check{background:#3b82f6;border:none;border-radius:10px;padding:10px 18px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.78rem;color:white;cursor:pointer;white-space:nowrap;}
+.btn-check{background:#3b82f6;border:none;border-radius:10px;padding:9px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.76rem;color:white;cursor:pointer;}
 .btn-check:hover{background:#2563eb;}
-.feedback{display:none;padding:10px 14px;border-radius:8px;font-size:0.82rem;font-weight:600;margin-top:4px;}
-.feedback.ok{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;}
-.feedback.no{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;}
-.solucion-box{margin-top:10px;background:rgba(0,0,0,0.2);border-radius:8px;padding:12px;font-family:'DM Mono',monospace;font-size:0.74rem;color:#94a3b8;line-height:1.8;display:none;white-space:pre-wrap;}
+.feedback{display:none;padding:9px 13px;border-radius:8px;font-size:0.8rem;font-weight:600;margin-top:4px;}
+.feedback.ok{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7;}
+.feedback.no{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;}
+.solucion-box{margin-top:9px;background:rgba(0,0,0,0.2);border-radius:8px;padding:11px;font-family:'DM Mono',monospace;font-size:0.72rem;color:#94a3b8;line-height:1.8;display:none;white-space:pre-wrap;}
 
-/* BOTONES */
-.fuente-link{display:block;margin:4px 0 12px;font-size:0.72rem;color:var(--muted);}
+/* ACCIONES */
+.fuente-link{display:block;margin:4px 0 10px;font-size:0.7rem;color:var(--muted);}
 .fuente-link a{color:#60a5fa;text-decoration:none;}
 .fuente-link a:hover{text-decoration:underline;}
-.action-row{display:flex;flex-direction:column;gap:10px;}
-.btn-wa{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;background:#25D366;border:none;border-radius:16px;padding:17px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem;color:#fff;cursor:pointer;transition:all 0.22s;box-shadow:0 8px 28px rgba(37,211,102,0.28);}
-.btn-wa:hover{background:#1fc45a;transform:translateY(-2px);}
+.action-row{display:flex;flex-direction:column;gap:9px;}
+.btn-wa{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:linear-gradient(135deg,#25D366,#1aad54);
+  border:none;border-radius:16px;padding:16px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:0.95rem;
+  color:#fff;cursor:pointer;transition:all 0.22s;
+  box-shadow:0 8px 24px rgba(37,211,102,0.3);letter-spacing:-0.01em;
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,211,102,0.4);}
 .btn-wa svg{width:22px;height:22px;flex-shrink:0;}
-.btn-copy{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:16px;padding:13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.83rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.18s;}
+.btn-copy{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:transparent;border:1.5px solid var(--border);border-radius:14px;padding:12px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  color:var(--muted);cursor:pointer;transition:all 0.18s;
+}
 .btn-copy:hover{color:var(--text);border-color:#3a4d70;}
-.loading-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;padding:52px 20px;}
-.spinner{width:38px;height:38px;border:2.5px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.75s linear infinite;}
+
+/* LOADING */
+.loading-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;padding:48px 20px;}
+.spinner{width:36px;height:36px;border:2.5px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.75s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.loading-wrap p{font-size:0.83rem;color:var(--muted);animation:pulse 1.4s ease infinite;}
-.loading-wrap small{font-size:0.72rem;color:var(--muted);opacity:0.6;}
+.loading-wrap p{font-size:0.82rem;color:var(--muted);animation:pulse 1.4s ease infinite;}
+.loading-wrap small{font-size:0.7rem;color:var(--muted);opacity:0.6;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.back-row{text-align:center;margin-bottom:28px;padding-top:4px;}
-.back-link{font-size:0.75rem;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.18s;}
+
+.back-row{text-align:center;margin-bottom:24px;padding-top:4px;}
+.back-link{font-size:0.74rem;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.18s;}
 .back-link:hover{color:var(--gold);}
-.app-footer{text-align:center;padding:32px 16px 0;color:var(--muted);font-size:0.72rem;line-height:1.7;}
+.app-footer{text-align:center;padding:28px 16px 0;color:var(--muted);font-size:0.7rem;line-height:1.8;}
 .app-footer strong{font-family:'Syne',sans-serif;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.err-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:18px;font-size:0.83rem;color:#fca5a5;line-height:1.7;}
-.err-box code{display:block;margin-top:8px;font-size:0.72rem;opacity:0.7;font-family:'DM Mono',monospace;}
-.debug-panel{background:rgba(245,197,24,0.06);border:1px solid rgba(245,197,24,0.2);border-radius:10px;padding:14px;margin-top:10px;font-size:0.72rem;color:var(--muted);font-family:'DM Mono',monospace;line-height:1.8;}
+.err-box{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:16px;font-size:0.82rem;color:#fca5a5;line-height:1.7;}
+.err-box code{display:block;margin-top:6px;font-size:0.7rem;opacity:0.6;font-family:'DM Mono',monospace;}
 </style>
 </head>
 <body>
 
-<!-- PORTADA -->
+<!-- ══════════════ PORTADA ══════════════ -->
 <section id="portada">
   <div class="particles" id="particles"></div>
-  <div class="logo-wrap">
-    <div class="logo-ring">
-      <div><div class="logo-inner">MY10</div><span class="logo-sub">Academia</span></div>
+
+  <!-- Badge superior -->
+  <div class="hero-badge">
+    <span>🎓</span> Plataforma Educativa Gratuita · IA + Wikipedia
+  </div>
+
+  <!-- Logo -->
+  <div class="logo-block">
+    <div class="logo-outer">
+      <div>
+        <div class="logo-my">MY</div>
+        <div class="logo-10">10</div>
+      </div>
+    </div>
+    <div class="logo-sub">ACADEMIA</div>
+  </div>
+
+  <!-- Ciudad -->
+  <div class="ciudad-tag">
+    <div class="dot"></div>
+    📍 Paso de los Libres · Corrientes · Argentina
+  </div>
+
+  <!-- Headline -->
+  <h1 class="hero-titulo">
+    <span class="line1">Tu tutor educativo</span>
+    <span class="line2">siempre en WhatsApp</span>
+  </h1>
+
+  <p class="hero-sub">
+    Aprende <strong>Física, Química, Matemáticas, Biología</strong> y
+    <strong>Ciencias de la Salud</strong> con resúmenes, gráficas,
+    esquemas y ejercicios — todo listo para compartir.
+  </p>
+
+  <!-- Materias grid -->
+  <div class="materias-portada">
+    <div class="mat-card-hero" onclick="irAppMat('fisica')">
+      <span class="mico">⚛️</span>
+      <span class="mnm">Física</span>
+    </div>
+    <div class="mat-card-hero" onclick="irAppMat('quimica')">
+      <span class="mico">🧪</span>
+      <span class="mnm">Química</span>
+    </div>
+    <div class="mat-card-hero" onclick="irAppMat('matematicas')">
+      <span class="mico">📐</span>
+      <span class="mnm">Mates</span>
+    </div>
+    <div class="mat-card-hero" onclick="irAppMat('biologia')">
+      <span class="mico">🌿</span>
+      <span class="mnm">Biología</span>
+    </div>
+    <div class="mat-card-hero" onclick="irAppMat('salud')">
+      <span class="mico">🩺</span>
+      <span class="mnm">Salud</span>
     </div>
   </div>
-  <div class="hero-eyebrow">Plataforma Educativa con IA</div>
-  <h1 class="hero-title">Aprende cualquier tema<br><span class="gold">en segundos.</span></h1>
-  <p class="hero-desc">Fisica, Quimica, Matematicas, Biologia y Ciencias de la Salud.<br><strong>Graficas, esquemas, ejercicios y formulas</strong> - listos para WhatsApp.</p>
-  <div class="hero-pills">
-    <span class="hero-pill">Fisica</span>
-    <span class="hero-pill">Quimica</span>
-    <span class="hero-pill">Matematicas</span>
-    <span class="hero-pill">Biologia</span>
-    <span class="hero-pill">Salud</span>
+
+  <!-- Características -->
+  <div class="features-row">
+    <span class="feat-chip"><span class="fi">📊</span> Gráficas interactivas</span>
+    <span class="feat-chip"><span class="fi">🗂️</span> Esquemas visuales</span>
+    <span class="feat-chip"><span class="fi">✏️</span> Ejercicios resueltos</span>
+    <span class="feat-chip"><span class="fi">🔣</span> Fórmulas clave</span>
+    <span class="feat-chip"><span class="fi">📲</span> Listo para WhatsApp</span>
   </div>
-  <button class="btn-cta" onclick="irApp()">Comenzar ahora</button>
-  <div class="hero-stats">
-    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Materias</div></div>
-    <div class="stat-item"><div class="stat-num">∞</div><div class="stat-lbl">Temas</div></div>
-    <div class="stat-item"><div class="stat-num">📊</div><div class="stat-lbl">Graficas</div></div>
-    <div class="stat-item"><div class="stat-num">1</div><div class="stat-lbl">Clic WhatsApp</div></div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <button class="btn-cta-main" onclick="irApp()">
+      🚀 Comenzar ahora <span class="arrow">→</span>
+    </button>
+    <span class="cta-note">100% gratuito · Sin registro · <span>Todo por WhatsApp</span></span>
   </div>
-  <div class="scroll-hint" onclick="irApp()">ENTRAR<div class="scroll-arrow"></div></div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-block">
+      <div class="stat-n">5</div>
+      <div class="stat-l">Materias<br>disponibles</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">∞</div>
+      <div class="stat-l">Temas que<br>puedes consultar</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">📊</div>
+      <div class="stat-l">Gráficas &<br>esquemas SVG</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">💚</div>
+      <div class="stat-l">1 clic<br>a WhatsApp</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" onclick="irApp()">
+    Entrar a la app
+    <div class="scroll-arr"></div>
+  </div>
 </section>
 
-<!-- APP -->
+
+<!-- ══════════════ APP ══════════════ -->
 <section id="app">
   <div class="app-topbar">
-    <div class="tb-logo">Academia MY 10</div>
-    <div class="tb-badge">IA + Wikipedia</div>
-    <div class="tb-status ok" id="tbStatus">Wikipedia activo</div>
+    <div class="tb-logo-wrap">
+      <div class="tb-logo-ico">🎓</div>
+      <div>
+        <div class="tb-logo-txt">Academia MY 10</div>
+        <div class="tb-logo-sub">📍 Paso de los Libres · IA Educativa</div>
+      </div>
+    </div>
+    <div class="tb-badge">Wikipedia + IA</div>
+    <div class="tb-status ok" id="tbStatus">En línea</div>
   </div>
 
   <div class="app-inner">
-    <div class="back-row"><button class="back-link" onclick="irPortada()">← Volver al inicio</button></div>
+    <div class="back-row">
+      <button class="back-link" onclick="irPortada()">← Volver al inicio</button>
+    </div>
 
-    <div class="step-label">Paso 1 · Materia</div>
+    <div class="step-label"><span class="sn">1</span> Elige la materia</div>
     <div class="mat-grid">
-      <button class="mat-btn" data-mat="fisica"><span class="ico">⚛️</span>Fisica</button>
-      <button class="mat-btn" data-mat="quimica"><span class="ico">🧪</span>Quimica</button>
+      <button class="mat-btn" data-mat="fisica"><span class="ico">⚛️</span>Física</button>
+      <button class="mat-btn" data-mat="quimica"><span class="ico">🧪</span>Química</button>
       <button class="mat-btn" data-mat="matematicas"><span class="ico">📐</span>Mates</button>
-      <button class="mat-btn" data-mat="biologia"><span class="ico">🌿</span>Biologia</button>
+      <button class="mat-btn" data-mat="biologia"><span class="ico">🌿</span>Biología</button>
       <button class="mat-btn" data-mat="salud"><span class="ico">🩺</span>Salud</button>
     </div>
 
-    <div class="step-label">Paso 2 · Contenido</div>
+    <div class="step-label"><span class="sn">2</span> ¿Qué necesitas?</div>
     <div class="tipo-row">
       <button class="tipo-chip active" data-tipo="todo">📦 Completo</button>
       <button class="tipo-chip" data-tipo="resumen">📋 Resumen</button>
       <button class="tipo-chip" data-tipo="ejercicios">✏️ Ejercicios</button>
-      <button class="tipo-chip" data-tipo="formulas">🔣 Formulas</button>
+      <button class="tipo-chip" data-tipo="formulas">🔣 Fórmulas</button>
       <button class="tipo-chip" data-tipo="ejemplos">💡 Ejemplos</button>
     </div>
 
-    <div class="step-label">Paso 3 · Tema</div>
+    <div class="step-label"><span class="sn">3</span> Escribe el tema</div>
     <div class="input-row">
       <textarea class="tema-input" id="temaInput" rows="2"
-        placeholder="Ej: Leyes de Newton, Tabla periodica, Derivadas..."></textarea>
-      <button class="btn-gen" id="btnGen" onclick="generar()">Generar</button>
+        placeholder="Ej: Leyes de Newton, Tabla periódica, Derivadas..."></textarea>
+      <button class="btn-gen" id="btnGen" onclick="generar()">✦ Generar</button>
     </div>
+
     <div class="topics-wrap" id="topicsWrap"></div>
     <div id="resultado"></div>
 
     <div class="app-footer">
-      <strong>Academia MY 10</strong> · Wikipedia + Graficas interactivas<br>
-      Verifica siempre con tu docente o fuente oficial.
+      <strong>Academia MY 10</strong> · 📍 Paso de los Libres, Corrientes<br>
+      ⚛️ Física &nbsp;|&nbsp; 🧪 Química &nbsp;|&nbsp; 📐 Matemáticas &nbsp;|&nbsp; 🌿 Biología &nbsp;|&nbsp; 🩺 Salud<br>
+      Información de Wikipedia · Siempre verifica con tu docente
     </div>
   </div>
 </section>
 
 <script>
-/* Particulas */
+/* ── Partículas ── */
 (function(){
   var c=document.getElementById('particles');
-  for(var i=0;i<24;i++){
-    var p=document.createElement('div');
-    p.className='particle';
+  var colores=['#F5C518','#38bdf8','#a78bfa','#34d399','#f97316'];
+  for(var i=0;i<32;i++){
+    var p=document.createElement('div');p.className='particle';
     p.style.left=Math.random()*100+'%';
-    var s=(Math.random()*2+1)+'px';
+    var s=(Math.random()*3+1)+'px';
     p.style.width=p.style.height=s;
-    p.style.animationDuration=(Math.random()*12+8)+'s';
-    p.style.animationDelay=(Math.random()*10)+'s';
+    p.style.background=colores[Math.floor(Math.random()*colores.length)];
+    p.style.animationDuration=(Math.random()*14+8)+'s';
+    p.style.animationDelay=(Math.random()*12)+'s';
     c.appendChild(p);
   }
 })();
 
 function irApp(){document.getElementById('app').scrollIntoView({behavior:'smooth'});}
 function irPortada(){document.getElementById('portada').scrollIntoView({behavior:'smooth'});}
+function irAppMat(mat){
+  irApp();
+  setTimeout(function(){
+    var btn=document.querySelector('[data-mat="'+mat+'"]');
+    if(btn) btn.click();
+  },600);
+}
 
 var TEMAS={
-  fisica:['Cinematica','Leyes de Newton','Termodinamica','Electromagnetismo','Optica','Energia y Trabajo'],
-  quimica:['Tabla periodica','Reacciones quimicas','Acidos y bases','Estequiometria','Enlace quimico'],
-  matematicas:['Derivadas','Integrales','Trigonometria','Probabilidad','Limites'],
-  biologia:['La celula','Fotosintesis','Genetica','Ecosistemas','Sistema nervioso'],
-  salud:['Hipertension','Diabetes','Sistema inmune','Nutricion','Primeros auxilios']
+  fisica:['Cinemática','Leyes de Newton','Termodinámica','Electromagnetismo','Óptica','Energía y Trabajo'],
+  quimica:['Tabla periódica','Reacciones químicas','Ácidos y bases','Estequiometría','Enlace químico'],
+  matematicas:['Derivadas','Integrales','Trigonometría','Probabilidad','Límites'],
+  biologia:['La célula','Fotosíntesis','Genética','Ecosistemas','Sistema nervioso'],
+  salud:['Hipertensión','Diabetes','Sistema inmune','Nutrición','Primeros auxilios']
 };
-var NOMBRES={fisica:'Fisica',quimica:'Quimica',matematicas:'Matematicas',biologia:'Biologia',salud:'Ciencias de la Salud'};
+var NOMBRES={fisica:'Física',quimica:'Química',matematicas:'Matemáticas',biologia:'Biología',salud:'Ciencias de la Salud'};
 var ICOS={fisica:'⚛️',quimica:'🧪',matematicas:'📐',biologia:'🌿',salud:'🩺'};
-var TIPOS={todo:'Completo',resumen:'Resumen',ejercicios:'Ejercicios',formulas:'Formulas',ejemplos:'Ejemplos'};
+var TIPOS={todo:'Completo',resumen:'Resumen',ejercicios:'Ejercicios',formulas:'Fórmulas',ejemplos:'Ejemplos'};
 
-var matActual=null, tipoActual='todo', textoWA='', chartList=[];
+var matActual=null,tipoActual='todo',textoWA='',chartList=[];
 
 document.querySelectorAll('.mat-btn').forEach(function(b){
   b.addEventListener('click',function(){
     document.querySelectorAll('.mat-btn').forEach(function(x){x.classList.remove('active');});
-    b.classList.add('active'); matActual=b.dataset.mat; renderTopics();
+    b.classList.add('active');matActual=b.dataset.mat;renderTopics();
   });
 });
 document.querySelectorAll('.tipo-chip').forEach(function(b){
   b.addEventListener('click',function(){
     document.querySelectorAll('.tipo-chip').forEach(function(x){x.classList.remove('active');});
-    b.classList.add('active'); tipoActual=b.dataset.tipo;
+    b.classList.add('active');tipoActual=b.dataset.tipo;
   });
 });
 
 function renderTopics(){
   var w=document.getElementById('topicsWrap');
-  var lista=TEMAS[matActual]||[];
-  w.innerHTML=lista.map(function(t){
+  w.innerHTML=(TEMAS[matActual]||[]).map(function(t){
     return '<button class="topic-tag" onclick="usarTema(\''+t+'\')">'+t+'</button>';
   }).join('');
 }
 function usarTema(t){document.getElementById('temaInput').value=t;}
 
-var LOADING=['Consultando Wikipedia...','Analizando el tema...','Preparando formulas...','Generando ejercicios...','Listo casi!'];
+/* ── Formato WhatsApp con emojis y señalizadores ── */
+function formatearWA(texto,mat,tema,tipo){
+  var EMOJ={fisica:'⚛️',quimica:'🧪',matematicas:'📐',biologia:'🌿',salud:'🩺'};
+  var NOM={fisica:'FÍSICA',quimica:'QUÍMICA',matematicas:'MATEMÁTICAS',biologia:'BIOLOGÍA',salud:'CIENCIAS DE LA SALUD'};
+  var TIPOS_WA={todo:'📦 Contenido Completo',resumen:'📋 Resumen',ejercicios:'✏️ Ejercicios',formulas:'🔣 Fórmulas',ejemplos:'💡 Ejemplos'};
+
+  var e=EMOJ[mat]||'📚';
+  var n=NOM[mat]||mat.toUpperCase();
+  var t=TIPOS_WA[tipo]||tipo;
+
+  var cabecera=
+    '╔══════════════════════╗\n'+
+    '║  '+e+'  ACADEMIA MY 10  '+e+'  ║\n'+
+    '╚══════════════════════╝\n'+
+    '📍 Paso de los Libres · Corrientes\n'+
+    '━━━━━━━━━━━━━━━━━━━━━━\n'+
+    e+' *'+n+'*\n'+
+    '📌 Tema: *'+tema+'*\n'+
+    '📂 '+t+'\n'+
+    '━━━━━━━━━━━━━━━━━━━━━━\n\n';
+
+  // Procesar el texto enriqueciendo señalizadores
+  var cuerpo=texto
+    // Secciones
+    .replace(/DEFINICION:/g,'📖 *DEFINICIÓN:*')
+    .replace(/PUNTOS CLAVE:/g,'📌 *PUNTOS CLAVE:*')
+    .replace(/DESARROLLO:/g,'📚 *DESARROLLO:*')
+    .replace(/HISTORIA:/g,'⏳ *HISTORIA:*')
+    .replace(/FORMULAS Y CONCEPTOS CLAVE:/g,'🔣 *FÓRMULAS Y CONCEPTOS CLAVE:*')
+    .replace(/SUBTEMAS EN WIKIPEDIA:/g,'🗂️ *SUBTEMAS:*')
+    .replace(/EJERCICIO RESUELTO:/g,'✏️ *EJERCICIO RESUELTO:*')
+    .replace(/APLICACIONES REALES:/g,'💡 *APLICACIONES REALES:*')
+    // Señalizadores de ítem
+    .replace(/^\* /gm,'✅ ')
+    .replace(/^-> /gm,'📎 ')
+    .replace(/^Paso (\d+):/gm,'🔹 Paso $1:')
+    .replace(/^(\d+)\) /gm,'🔸 $1) ')
+    .replace(/^- /gm,'▪️ ')
+    // Separadores
+    .replace(/══════════════════════/g,'━━━━━━━━━━━━━━━━━━━━━━')
+    // Resultados/respuestas
+    .replace(/^Resultado:/gm,'✅ *Resultado:*')
+    .replace(/^Solucion:/gm,'🔍 *Solución:*')
+    .replace(/^Respuesta:/gm,'💬 *Respuesta:*');
+
+  var pie=
+    '\n━━━━━━━━━━━━━━━━━━━━━━\n'+
+    '🌐 Fuente: Wikipedia\n'+
+    '━━━━━━━━━━━━━━━━━━━━━━\n'+
+    '🎓 *Academia MY 10*\n'+
+    '📍 Paso de los Libres · Corrientes\n'+
+    '⚛️ Física | 🧪 Química | 📐 Mates\n'+
+    '🌿 Biología | 🩺 Salud\n'+
+    '━━━━━━━━━━━━━━━━━━━━━━\n'+
+    '📲 _Compartido desde Academia MY 10_\n'+
+    '💚 _¡Todo por WhatsApp!_ 🏆';
+
+  return cabecera+cuerpo+pie;
+}
+
+var LOADING=['🔍 Consultando Wikipedia...','📖 Analizando el tema...','🔣 Preparando fórmulas...','✏️ Generando ejercicios...','📊 Construyendo gráficas...'];
 
 async function generar(){
   var tema=document.getElementById('temaInput').value.trim();
-  if(!matActual){alert('Selecciona una materia primero');return;}
-  if(!tema){alert('Escribe el tema que quieres consultar');return;}
+  if(!matActual){alert('📌 Selecciona una materia primero');return;}
+  if(!tema){alert('✏️ Escribe el tema que quieres consultar');return;}
 
   chartList.forEach(function(c){try{c.destroy();}catch(e){}});
   chartList=[];
 
   var btn=document.getElementById('btnGen');
-  btn.disabled=true; btn.textContent='...';
-
+  btn.disabled=true;btn.textContent='⏳...';
   var res=document.getElementById('resultado');
   res.style.display='block';
   var mi=0;
-  res.innerHTML='<div class="res-card"><div class="loading-wrap"><div class="spinner"></div><p id="lm">'+LOADING[0]+'</p><small>Wikipedia ES + Graficas interactivas</small></div></div>';
+  res.innerHTML='<div class="res-card"><div class="loading-wrap"><div class="spinner"></div><p id="lm">'+LOADING[0]+'</p><small>Wikipedia ES + Gráficas interactivas 📊</small></div></div>';
   res.scrollIntoView({behavior:'smooth',block:'start'});
-
-  var lt=setInterval(function(){
-    mi=(mi+1)%LOADING.length;
-    var el=document.getElementById('lm');
-    if(el) el.textContent=LOADING[mi];
-  },1800);
+  var lt=setInterval(function(){mi=(mi+1)%LOADING.length;var el=document.getElementById('lm');if(el)el.textContent=LOADING[mi];},1700);
 
   try{
-    // Llamada a la API serverless
     var r=await fetch('/api/generate',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({materia:matActual,tema:tema,tipo:tipoActual})
     });
-
     clearInterval(lt);
-
-    // Verificar content-type ANTES de parsear
     var ct=r.headers.get('content-type')||'';
-
     if(!ct.includes('application/json')){
-      var rawBody=await r.text();
-      // Mostrar debug para diagnóstico
-      throw new Error('API_NOT_JSON: '+r.status+' '+r.statusText+'|'+rawBody.slice(0,200));
+      var raw=await r.text();
+      throw new Error('API devolvió HTML en vez de JSON ('+r.status+'). Verifica el despliegue en Vercel. |'+raw.slice(0,150));
     }
-
     var data=await r.json();
+    if(!r.ok) throw new Error(data.error||'Error HTTP '+r.status);
 
-    if(!r.ok){
-      throw new Error(data.error||'Error HTTP '+r.status);
-    }
-
-    textoWA=data.texto||'';
+    // Aplicar formato WhatsApp enriquecido
+    textoWA=formatearWA(data.texto||'',matActual,tema,tipoActual);
     var titulo=data.titulo||tema;
-    var fuenteURL=data.fuente||('https://es.wikipedia.org/wiki/'+encodeURIComponent(tema));
-    var parrafos=data.parrafos||0;
-    var secciones=data.secciones||0;
+    var fuenteURL=data.fuente||'https://es.wikipedia.org/wiki/'+encodeURIComponent(tema);
 
-    // Actualizar status
     var st=document.getElementById('tbStatus');
-    st.textContent='Wikipedia: '+secciones+' secciones, '+parrafos+' parrafos';
+    st.textContent='✅ '+( data.secciones||0)+' secciones · '+(data.parrafos||0)+' párrafos';
     st.className='tb-status ok';
 
-    // Construir UI con tabs
     res.innerHTML=
       '<div class="res-card">'+
         '<div class="res-head">'+
           '<div class="res-dot">'+ICOS[matActual]+'</div>'+
-          '<div class="res-head-title">'+TIPOS[tipoActual]+' · <span style="color:var(--muted);font-weight:400">'+tema+'</span></div>'+
+          '<div class="res-head-title">'+TIPOS[tipoActual]+' · <span style="color:var(--muted);font-weight:500">'+tema+'</span></div>'+
           '<div class="res-head-mat">'+NOMBRES[matActual]+'</div>'+
         '</div>'+
         '<div class="content-tabs">'+
           '<button class="ctab active" onclick="switchTab(this,\'tab-info\')">📋 Info</button>'+
-          '<button class="ctab" onclick="switchTab(this,\'tab-formulas\')">🔣 Formulas</button>'+
-          '<button class="ctab" onclick="switchTab(this,\'tab-graficas\')">📊 Graficas</button>'+
+          '<button class="ctab" onclick="switchTab(this,\'tab-formulas\')">🔣 Fórmulas</button>'+
+          '<button class="ctab" onclick="switchTab(this,\'tab-graficas\')">📊 Gráficas</button>'+
           '<button class="ctab" onclick="switchTab(this,\'tab-esquema\')">🗂️ Esquema</button>'+
           '<button class="ctab" onclick="switchTab(this,\'tab-ejercicios\')">✏️ Ejercicios</button>'+
         '</div>'+
-        '<div class="tab-panel active" id="tab-info"><div class="res-body">'+fmt(textoWA)+'</div></div>'+
+        '<div class="tab-panel active" id="tab-info"><div class="res-body">'+fmt(data.texto||'')+'</div></div>'+
         '<div class="tab-panel" id="tab-formulas">'+buildFormulasUI(matActual,tema)+'</div>'+
         '<div class="tab-panel" id="tab-graficas">'+buildGraficasHTML(matActual,tema)+'</div>'+
         '<div class="tab-panel" id="tab-esquema">'+buildEsquema(matActual,tema)+'</div>'+
         '<div class="tab-panel" id="tab-ejercicios">'+buildEjerciciosUI(matActual,tema)+'</div>'+
       '</div>'+
-      '<div class="fuente-link">Fuente: <a href="'+fuenteURL+'" target="_blank" rel="noopener">'+fuenteURL+'</a></div>'+
+      '<div class="fuente-link">🌐 Fuente: <a href="'+fuenteURL+'" target="_blank" rel="noopener">'+fuenteURL+'</a></div>'+
       '<div class="action-row">'+
         '<button class="btn-wa" onclick="enviarWA()">'+
           '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>'+
-          'Enviar por WhatsApp'+
+          '📲 Enviar por WhatsApp'+
         '</button>'+
-        '<button class="btn-copy" id="btnCopy" onclick="copiar()">📋 Copiar texto</button>'+
+        '<button class="btn-copy" id="btnCopy" onclick="copiar()">📋 Copiar texto completo</button>'+
       '</div>';
 
     setTimeout(function(){initCharts(matActual,tema);},120);
-
   }catch(e){
     clearInterval(lt);
-    var msg=e.message||'Error desconocido';
-    var isApiErr=msg.startsWith('API_NOT_JSON');
     var st2=document.getElementById('tbStatus');
-    st2.textContent='Error de conexion';
-    st2.className='tb-status err';
-
-    res.innerHTML='<div class="res-card"><div style="padding:20px">'+
-      '<div class="err-box">'+
-        (isApiErr
-          ? '⚠️ La funcion /api/generate no responde como JSON.<br>Verifica en Vercel que el despliegue fue exitoso y la funcion esta activa.'
-          : '⚠️ '+msg)+
-        '<code>'+msg.slice(0,300)+'</code>'+
-      '</div>'+
-      '<div class="debug-panel">'+
-        'URL llamada: /api/generate (POST)\n'+
-        'Materia: '+matActual+'\n'+
-        'Tema: '+tema+'\n'+
-        'Tipo: '+tipoActual+'\n\n'+
-        'Si ves error HTML significa que Vercel no procesa la funcion.\n'+
-        'Solucion: Ve a Vercel -> tu proyecto -> Functions -> verifica que api/generate.js aparece listada.'+
-      '</div>'+
-    '</div></div>';
+    st2.textContent='⚠️ Error';st2.className='tb-status err';
+    res.innerHTML='<div class="res-card"><div style="padding:18px"><div class="err-box">⚠️ '+e.message+'<code>'+e.message.slice(0,300)+'</code></div></div></div>';
   }
-
-  btn.disabled=false; btn.textContent='Generar';
+  btn.disabled=false;btn.textContent='✦ Generar';
 }
 
-function switchTab(btn,panelId){
+function switchTab(btn,id){
   document.querySelectorAll('.ctab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
   btn.classList.add('active');
-  var panel=document.getElementById(panelId);
-  if(panel) panel.classList.add('active');
-  if(panelId==='tab-graficas'){
-    setTimeout(function(){
-      initCharts(matActual,document.getElementById('temaInput').value);
-    },60);
-  }
+  var p=document.getElementById(id);if(p)p.classList.add('active');
+  if(id==='tab-graficas')setTimeout(function(){initCharts(matActual,document.getElementById('temaInput').value);},60);
 }
 
-/* ── FÓRMULAS UI ── */
+/* ══ FÓRMULAS UI ══ */
 function buildFormulasUI(mat,tema){
   var t=tema.toLowerCase();
   var DB={
     fisica:{
       newton:[
-        {eq:'F = m x a',desc:'<strong>F</strong>: Fuerza (N) | <strong>m</strong>: masa (kg) | <strong>a</strong>: aceleracion (m/s2)'},
-        {eq:'W = m x g',desc:'<strong>W</strong>: Peso | <strong>g</strong> = 9.8 m/s2'},
-        {eq:'p = m x v',desc:'<strong>p</strong>: momento lineal (kg m/s)'},
+        {eq:'F = m × a',desc:'<strong>F</strong>: Fuerza (N) | <strong>m</strong>: masa (kg) | <strong>a</strong>: aceleración (m/s²)'},
+        {eq:'W = m × g',desc:'<strong>W</strong>: Peso (N) | <strong>g</strong> = 9.8 m/s² (gravedad terrestre)'},
+        {eq:'p = m × v',desc:'<strong>p</strong>: momento lineal | F = Δp/Δt (forma general 2ª Ley)'},
       ],
       cinemat:[
-        {eq:'v = v0 + at',desc:'Velocidad final en MUA'},
-        {eq:'x = v0t + ½at²',desc:'Posicion en funcion del tiempo'},
-        {eq:'v² = v0² + 2ax',desc:'Relacion velocidad-posicion'},
+        {eq:'v = v₀ + at',desc:'Velocidad final en MUA'},
+        {eq:'x = v₀t + ½at²',desc:'Posición en función del tiempo'},
+        {eq:'v² = v₀² + 2ax',desc:'Relación velocidad-posición (sin tiempo)'},
       ],
       energ:[
-        {eq:'Ec = ½mv²',desc:'Energia cinetica en Joules'},
-        {eq:'Ep = mgh',desc:'Energia potencial gravitatoria'},
-        {eq:'W = F·d·cosθ',desc:'Trabajo mecanico'},
+        {eq:'Ec = ½mv²',desc:'Energía cinética en Joules (J)'},
+        {eq:'Ep = mgh',desc:'Energía potencial gravitatoria'},
+        {eq:'W = F·d·cosθ',desc:'Trabajo mecánico | θ: ángulo entre F y desplazamiento'},
       ],
       termodin:[
-        {eq:'ΔU = Q − W',desc:'Primera Ley Termodinamica'},
-        {eq:'PV = nRT',desc:'Ley del gas ideal | R=8.314 J/mol·K'},
-        {eq:'Q = mcΔT',desc:'Calor sensible | c: calor especifico'},
+        {eq:'ΔU = Q − W',desc:'1ª Ley Termodinámica | ΔU: energía interna'},
+        {eq:'PV = nRT',desc:'Gas ideal | R = 8.314 J/mol·K | T en Kelvin'},
+        {eq:'Q = mcΔT',desc:'Calor sensible | c: calor específico del material'},
       ],
       electr:[
-        {eq:'V = I x R',desc:'Ley de Ohm | V(V), I(A), R(Ω)'},
-        {eq:'P = V x I',desc:'Potencia electrica en Watts'},
-        {eq:'F = kq1q2/r²',desc:'Ley de Coulomb | k=9x10^9'},
+        {eq:'V = I × R',desc:'Ley de Ohm | V(V), I(A), R(Ω)'},
+        {eq:'P = V × I = I²R',desc:'Potencia eléctrica en Watts'},
+        {eq:'F = kq₁q₂/r²',desc:'Ley de Coulomb | k = 9×10⁹ N·m²/C²'},
       ]
     },
     quimica:{
       acido:[
-        {eq:'pH = -log[H+]',desc:'Escala pH 0-14 | Acido<7<Base'},
-        {eq:'pH + pOH = 14',desc:'A 25°C en solucion acuosa'},
-        {eq:'Kw = [H+][OH-]',desc:'Kw = 10^-14 a 25°C'},
+        {eq:'pH = −log[H⁺]',desc:'Escala de 0 (ácido fuerte) a 14 (base fuerte)'},
+        {eq:'pH + pOH = 14',desc:'A 25°C — si pH=5 entonces pOH=9'},
+        {eq:'Kw = [H⁺][OH⁻] = 10⁻¹⁴',desc:'Producto iónico del agua a 25°C'},
       ],
       mol:[
         {eq:'n = m / M',desc:'moles = masa(g) / masa molar(g/mol)'},
-        {eq:'C = n / V',desc:'Concentracion molar (mol/L)'},
-        {eq:'C1V1 = C2V2',desc:'Dilucion de soluciones'},
+        {eq:'C = n / V',desc:'Concentración molar (mol/L = M)'},
+        {eq:'C₁V₁ = C₂V₂',desc:'Ley de dilución de soluciones'},
+      ],
+      enlace:[
+        {eq:'ΔEN > 1.7 → Iónico',desc:'Metal + No metal → NaCl, MgO'},
+        {eq:'0.4 < ΔEN < 1.7 → Cov. polar',desc:'H₂O, HCl, NH₃'},
+        {eq:'ΔEN < 0.4 → Cov. apolar',desc:'H₂, O₂, N₂, CH₄'},
       ]
     },
     matematicas:{
       derivada:[
-        {eq:"(x^n)' = nx^(n-1)",desc:'Regla de la potencia'},
+        {eq:"(xⁿ)' = n·xⁿ⁻¹",desc:'Regla de la potencia — la más frecuente'},
         {eq:"(f·g)' = f'g + fg'",desc:'Regla del producto'},
         {eq:"[f(g)]' = f'(g)·g'",desc:'Regla de la cadena'},
         {eq:"(sin x)' = cos x",desc:'Derivada del seno'},
-        {eq:"(e^x)' = e^x",desc:'La exponencial es su propia derivada'},
+        {eq:"(eˣ)' = eˣ",desc:'La exponencial es su propia derivada'},
       ],
       integral:[
-        {eq:'∫x^n dx = x^(n+1)/(n+1)+C',desc:'Regla potencia inversa (n≠-1)'},
-        {eq:'∫e^x dx = e^x + C',desc:'Integral de la exponencial'},
-        {eq:'∫sin x dx = -cos x + C',desc:'Integral del seno'},
+        {eq:'∫xⁿdx = xⁿ⁺¹/(n+1)+C',desc:'Regla de la potencia inversa (n≠−1)'},
+        {eq:'∫eˣdx = eˣ + C',desc:'Integral de la exponencial'},
+        {eq:'∫sin x dx = −cos x + C',desc:'Integral del seno'},
       ],
       trigono:[
-        {eq:'sin²θ + cos²θ = 1',desc:'Identidad pitagorica fundamental'},
-        {eq:'tan θ = sin/cos',desc:'Definicion de la tangente'},
-        {eq:'a/sinA = b/sinB',desc:'Ley de los senos'},
+        {eq:'sin²θ + cos²θ = 1',desc:'Identidad pitagórica fundamental'},
+        {eq:'tan θ = sin θ / cos θ',desc:'Definición de la tangente'},
+        {eq:'a/sinA = b/sinB',desc:'Ley de los senos (triángulos oblicuos)'},
       ],
       probabilidad:[
-        {eq:'P(A∪B)=P(A)+P(B)-P(A∩B)',desc:'Union de eventos'},
-        {eq:'C(n,r) = n!/[r!(n-r)!]',desc:'Combinaciones'},
-        {eq:'P(A|B) = P(A∩B)/P(B)',desc:'Probabilidad condicional'},
+        {eq:'P(A∪B) = P(A)+P(B)−P(A∩B)',desc:'Unión de dos eventos'},
+        {eq:'C(n,r) = n! / [r!(n−r)!]',desc:'Número de combinaciones'},
+        {eq:'P(A|B) = P(A∩B) / P(B)',desc:'Probabilidad condicional'},
       ]
     },
     biologia:{
       celula:[
-        {eq:'ATP = ADP + Pi + energia',desc:'Hidrolisis del ATP libera energia'},
-        {eq:'36-38 ATP / glucosa',desc:'Rendimiento respiracion celular aerobia'},
+        {eq:'ATP = ADP + Pᵢ + E',desc:'Hidrólisis del ATP libera energía celular'},
+        {eq:'36−38 ATP / glucosa',desc:'Rendimiento de la respiración celular aerobia'},
       ],
       fotosint:[
-        {eq:'6CO2+6H2O+luz→C6H12O6+6O2',desc:'Ecuacion global de la fotosintesis'},
-        {eq:'Fase luminosa → ATP+NADPH',desc:'En tilacoides de los cloroplastos'},
+        {eq:'6CO₂+6H₂O+luz → C₆H₁₂O₆+6O₂',desc:'Ecuación global de la fotosíntesis'},
+        {eq:'Fase luminosa → ATP + NADPH',desc:'En tilacoides de los cloroplastos'},
       ],
       genetica:[
-        {eq:'ADN→ARNm→Proteina',desc:'Dogma central de biologia molecular'},
-        {eq:'Codon = 3 bases = 1 AA',desc:'64 codones | 61 coding | 3 STOP'},
+        {eq:'ADN → ARNm → Proteína',desc:'Dogma central de la biología molecular'},
+        {eq:'Codón = 3 bases = 1 aminoácido',desc:'64 codones | 61 codifican | 3 son STOP'},
       ]
     },
     salud:{
       hipertension:[
-        {eq:'PA = GC x RVP',desc:'GC: gasto cardiaco | RVP: resistencia vascular'},
-        {eq:'IMC = kg / m²',desc:'Normal: 18.5-24.9 | Sobrepeso: 25-29.9'},
-        {eq:'FC_max = 220 - edad',desc:'Frecuencia cardiaca maxima estimada'},
+        {eq:'PA = GC × RVP',desc:'Gasto cardíaco × Resistencia vascular periférica'},
+        {eq:'IMC = kg / m²',desc:'Normal: 18.5−24.9 | Sobrepeso: 25−29.9'},
+        {eq:'FCmáx = 220 − edad',desc:'Frecuencia cardíaca máxima estimada'},
       ],
       diabetes:[
-        {eq:'HbA1c objetivo < 7%',desc:'Meta en paciente diabetico estable (ADA)'},
-        {eq:'Glucosa ayunas normal: 70-100',desc:'mg/dL en plasma venoso'},
+        {eq:'HbA1c objetivo < 7%',desc:'Meta en paciente diabético estable (ADA 2024)'},
+        {eq:'Glucosa ayunas normal: 70−100 mg/dL',desc:'En plasma venoso'},
       ]
     }
   };
-
   var mDB=DB[mat]||{};
   var formulas=null;
-  for(var k in mDB){
-    if(t.includes(k)){formulas=mDB[k];break;}
-  }
-  if(!formulas){
-    return '<div style="color:var(--muted);text-align:center;padding:40px">Escribe un tema especifico para ver formulas visuales (ej: "Leyes de Newton", "Derivadas", "pH")</div>';
-  }
+  for(var k in mDB){if(t.includes(k)){formulas=mDB[k];break;}}
+  if(!formulas)return '<div style="color:var(--muted);text-align:center;padding:36px 20px">📌 Escribe un tema específico para ver fórmulas (ej: "Leyes de Newton", "Derivadas", "pH")</div>';
   return formulas.map(function(f){
     return '<div class="formula-box"><div class="formula-eq">'+f.eq+'</div><div class="formula-desc">'+f.desc+'</div></div>';
   }).join('');
 }
 
-/* ── GRÁFICAS HTML ── */
+/* ══ GRÁFICAS HTML ══ */
 function buildGraficasHTML(mat,tema){
-  var t=tema.toLowerCase();
-  var html='';
+  var t=tema.toLowerCase();var html='';
   if(mat==='fisica'){
     if(t.includes('newton')||t.includes('fuerza')||t.includes('cinemat')||t.includes('velocidad')){
-      html+='<div class="chart-wrap"><div class="chart-title">Posicion vs Tiempo (MUA a=2 m/s2)</div><canvas id="chart1"></canvas><p class="chart-note">x = v0t + ½at² | v0=0, a=2 m/s²</p></div>';
-      html+='<div class="chart-wrap"><div class="chart-title">Velocidad vs Tiempo (a=2 m/s2)</div><canvas id="chart2"></canvas><p class="chart-note">v = v0 + at | La pendiente = aceleracion</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📈 Posición vs Tiempo — MUA (a=2 m/s²)</div><canvas id="chart1"></canvas><p class="chart-note">x = v₀t + ½at² | v₀=0, a=2 m/s²</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">⚡ Velocidad vs Tiempo (a=2 m/s²)</div><canvas id="chart2"></canvas><p class="chart-note">v = v₀ + at | La pendiente = aceleración constante</p></div>';
     } else if(t.includes('energ')){
-      html+='<div class="chart-wrap"><div class="chart-title">Conservacion de Energia - Caida libre 10m</div><canvas id="chart1"></canvas><p class="chart-note">Ep + Ec = cte (m=2kg, h=10m)</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">⚡ Conservación de Energía — Caída libre 10m</div><canvas id="chart1"></canvas><p class="chart-note">Ep + Ec = Et = constante (m=2kg)</p></div>';
     } else if(t.includes('termodin')||t.includes('calor')){
-      html+='<div class="chart-wrap"><div class="chart-title">Curva de Calentamiento del Agua</div><canvas id="chart1"></canvas><p class="chart-note">Mesetas = cambios de estado a P=1 atm</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🌡️ Curva de Calentamiento del Agua</div><canvas id="chart1"></canvas><p class="chart-note">Mesetas = cambios de estado a P=1 atm</p></div>';
     } else {
-      html+='<div class="chart-wrap"><div class="chart-title">Areas de la Fisica</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">⚛️ Áreas de la Física</div><canvas id="chart1"></canvas></div>';
     }
   } else if(mat==='quimica'){
     if(t.includes('acido')||t.includes('ph')||t.includes('base')){
-      html+='<div class="chart-wrap"><div class="chart-title">pH de Sustancias Comunes</div><canvas id="chart1"></canvas><p class="chart-note">Escala 0-14: Rojo=acido, Verde=neutro, Azul=base</p></div>';
-      html+='<div class="chart-wrap"><div class="chart-title">Curva de Titulacion Acido-Base</div><canvas id="chart2"></canvas><p class="chart-note">pH vs volumen de NaOH añadido</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🧪 Escala de pH — Sustancias comunes</div><canvas id="chart1"></canvas><p class="chart-note">Rojo=ácido · Verde=neutro · Azul=base</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📉 Curva de Titulación Ácido-Base</div><canvas id="chart2"></canvas><p class="chart-note">pH vs volumen NaOH añadido</p></div>';
     } else if(t.includes('tabla')||t.includes('periodic')){
-      html+='<div class="chart-wrap"><div class="chart-title">Electronegatividad (Pauling) - Periodo 2</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📊 Electronegatividad Pauling — Período 2</div><canvas id="chart1"></canvas></div>';
     } else {
-      html+='<div class="chart-wrap"><div class="chart-title">Tipos de Reacciones Quimicas</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🧪 Tipos de Reacciones Químicas</div><canvas id="chart1"></canvas></div>';
     }
   } else if(mat==='matematicas'){
     if(t.includes('derivada')){
-      html+='<div class="chart-wrap"><div class="chart-title">f(x)=x³-3x y su Derivada f\'(x)=3x²-3</div><canvas id="chart1"></canvas><p class="chart-note">La derivada es la pendiente de la curva en cada punto</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📈 f(x)=x³−3x y su Derivada f\'(x)=3x²−3</div><canvas id="chart1"></canvas><p class="chart-note">La derivada indica la pendiente en cada punto</p></div>';
     } else if(t.includes('integral')){
-      html+='<div class="chart-wrap"><div class="chart-title">Area bajo f(x)=x² entre 0 y 3</div><canvas id="chart1"></canvas><p class="chart-note">Area = INT[0,3] x² dx = 9 u²</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📐 Área bajo f(x)=x² entre 0 y 3</div><canvas id="chart1"></canvas><p class="chart-note">∫₀³ x² dx = 9 unidades cuadradas</p></div>';
     } else if(t.includes('trigono')||t.includes('seno')||t.includes('coseno')){
-      html+='<div class="chart-wrap"><div class="chart-title">Funciones Seno y Coseno</div><canvas id="chart1"></canvas><p class="chart-note">Amplitud=1 | Periodo=2π ≈ 6.28 rad</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🌊 Funciones Seno y Coseno</div><canvas id="chart1"></canvas><p class="chart-note">Amplitud=1 | Período=2π ≈ 6.28 rad</p></div>';
     } else if(t.includes('probabilidad')){
-      html+='<div class="chart-wrap"><div class="chart-title">Distribucion Normal N(0,1)</div><canvas id="chart1"></canvas><p class="chart-note">Regla 68-95-99.7%</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🔔 Distribución Normal N(0,1) — Campana de Gauss</div><canvas id="chart1"></canvas><p class="chart-note">68% datos entre ±1σ | 95% entre ±2σ</p></div>';
     } else {
-      html+='<div class="chart-wrap"><div class="chart-title">Funciones Basicas</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📊 Funciones Matemáticas Básicas</div><canvas id="chart1"></canvas></div>';
     }
   } else if(mat==='biologia'){
-    if(t.includes('celula')){
-      html+='<div class="chart-wrap"><div class="chart-title">Composicion Quimica de la Celula</div><canvas id="chart1"></canvas></div>';
-      html+='<div class="chart-wrap"><div class="chart-title">Ciclo Celular - Distribucion del tiempo</div><canvas id="chart2"></canvas></div>';
+    if(t.includes('célula')||t.includes('celula')){
+      html+='<div class="chart-wrap"><div class="chart-title">🧬 Composición Química de la Célula</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🔄 Ciclo Celular — Distribución del tiempo</div><canvas id="chart2"></canvas></div>';
     } else if(t.includes('fotosint')){
-      html+='<div class="chart-wrap"><div class="chart-title">Tasa Fotosintetica vs Intensidad Luminica</div><canvas id="chart1"></canvas><p class="chart-note">Punto de saturacion luminica</p></div>';
-    } else if(t.includes('genetica')){
-      html+='<div class="chart-wrap"><div class="chart-title">Herencia Mendeliana - Proporcion F2</div><canvas id="chart1"></canvas><p class="chart-note">Proporcion fenotipica 3:1 para rasgo simple</p></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">☀️ Tasa Fotosintética vs Intensidad Lumínica</div><canvas id="chart1"></canvas><p class="chart-note">Punto de saturación lumínica</p></div>';
+    } else if(t.includes('genética')||t.includes('genetica')){
+      html+='<div class="chart-wrap"><div class="chart-title">🧬 Herencia Mendeliana — Proporción Fenotípica F2</div><canvas id="chart1"></canvas></div>';
     } else {
-      html+='<div class="chart-wrap"><div class="chart-title">Niveles Organizacion Biologica</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🌿 Diversidad Biológica</div><canvas id="chart1"></canvas></div>';
     }
   } else if(mat==='salud'){
-    if(t.includes('hipertension')||t.includes('presion')){
-      html+='<div class="chart-wrap"><div class="chart-title">Clasificacion Presion Arterial (AHA 2023)</div><canvas id="chart1"></canvas><p class="chart-note">Sistolica en mmHg por categoria diagnostica</p></div>';
-      html+='<div class="chart-wrap"><div class="chart-title">Reduccion PA por Intervencion (mmHg sistolica)</div><canvas id="chart2"></canvas></div>';
+    if(t.includes('hipertensión')||t.includes('hipertension')||t.includes('presion')){
+      html+='<div class="chart-wrap"><div class="chart-title">❤️ Clasificación Presión Arterial (AHA 2023)</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📉 Reducción PA por Intervención (mmHg sistólica)</div><canvas id="chart2"></canvas></div>';
     } else if(t.includes('diabetes')||t.includes('glucosa')){
-      html+='<div class="chart-wrap"><div class="chart-title">Niveles de Glucosa por Diagnostico (mg/dL ayunas)</div><canvas id="chart1"></canvas></div>';
-      html+='<div class="chart-wrap"><div class="chart-title">Curva Glucemica Normal vs DM2 (2h post-comida)</div><canvas id="chart2"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🩸 Niveles de Glucosa por Diagnóstico (mg/dL)</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">📊 Curva Glucémica Normal vs DM2 (2h post-comida)</div><canvas id="chart2"></canvas></div>';
     } else {
-      html+='<div class="chart-wrap"><div class="chart-title">Principales Causas de Mortalidad Global</div><canvas id="chart1"></canvas></div>';
+      html+='<div class="chart-wrap"><div class="chart-title">🩺 Causas de Mortalidad Global</div><canvas id="chart1"></canvas></div>';
     }
   }
-  return html||'<p style="color:var(--muted);text-align:center;padding:40px">Selecciona un tema especifico para ver graficas</p>';
+  return html||'<p style="color:var(--muted);text-align:center;padding:36px">Selecciona un tema específico para ver gráficas</p>';
 }
 
-/* ── INIT CHARTS ── */
+/* ══ INIT CHARTS ══ */
 function initCharts(mat,tema){
-  if(typeof Chart==='undefined') return;
-  Chart.defaults.color='#6B7FA8';
-  Chart.defaults.borderColor='#263352';
+  if(typeof Chart==='undefined')return;
+  Chart.defaults.color='#6B7FA8';Chart.defaults.borderColor='#263352';
   var t=(tema||'').toLowerCase();
-
-  function mkLine(id,labels,datasets){
-    var el=document.getElementById(id); if(!el)return;
-    var c=new Chart(el,{type:'line',data:{labels:labels,datasets:datasets},
-      options:{responsive:true,maintainAspectRatio:true,
-        plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},
-        scales:{x:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}},
-                y:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}}}}});
-    chartList.push(c);
-  }
-  function mkBar(id,labels,data,colors,label){
-    var el=document.getElementById(id); if(!el)return;
-    var c=new Chart(el,{type:'bar',data:{labels:labels,datasets:[{label:label,data:data,backgroundColor:colors,borderRadius:6,borderSkipped:false}]},
-      options:{responsive:true,maintainAspectRatio:true,
-        plugins:{legend:{display:false}},
-        scales:{x:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:9}}},
-                y:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}}}}});
-    chartList.push(c);
-  }
-  function mkDoughnut(id,labels,data,colors){
-    var el=document.getElementById(id); if(!el)return;
-    var c=new Chart(el,{type:'doughnut',data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:2,borderColor:'#0D1628'}]},
-      options:{responsive:true,maintainAspectRatio:true,
-        plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:10},padding:8}}}}});
-    chartList.push(c);
-  }
+  function mkLine(id,labels,ds){var el=document.getElementById(id);if(!el)return;var c=new Chart(el,{type:'line',data:{labels:labels,datasets:ds},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},scales:{x:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}},y:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}}}}});chartList.push(c);}
+  function mkBar(id,labels,data,colors,label){var el=document.getElementById(id);if(!el)return;var c=new Chart(el,{type:'bar',data:{labels:labels,datasets:[{label:label,data:data,backgroundColor:colors,borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:9}}},y:{grid:{color:'#1e2d47'},ticks:{color:'#6B7FA8',font:{size:10}}}}}});chartList.push(c);}
+  function mkDoughnut(id,labels,data,colors){var el=document.getElementById(id);if(!el)return;var c=new Chart(el,{type:'doughnut',data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderWidth:2,borderColor:'#0D1628'}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:10},padding:8}}}}});chartList.push(c);}
 
   if(mat==='fisica'){
     if(t.includes('newton')||t.includes('cinemat')||t.includes('velocidad')||t.includes('fuerza')){
       var ts=[0,1,2,3,4,5,6,7,8];
-      mkLine('chart1',ts,[{label:'Posicion (m)',data:ts.map(function(x){return 0.5*2*x*x;}),borderColor:'#38bdf8',backgroundColor:'rgba(56,189,248,0.1)',fill:true,tension:0.4,pointRadius:4}]);
+      mkLine('chart1',ts,[{label:'Posición (m)',data:ts.map(function(x){return 0.5*2*x*x;}),borderColor:'#38bdf8',backgroundColor:'rgba(56,189,248,0.1)',fill:true,tension:0.4,pointRadius:4}]);
       mkLine('chart2',ts,[{label:'Velocidad (m/s)',data:ts.map(function(x){return 2*x;}),borderColor:'#F5C518',backgroundColor:'rgba(245,197,24,0.1)',fill:true,tension:0,pointRadius:4}]);
     } else if(t.includes('energ')){
       var hs=[0,1,2,3,4,5,6,7,8,9,10];
-      var m=2,g=9.8,H=10;
-      mkLine('chart1',hs.map(function(h){return h+'m';}),[ 
-        {label:'Ep (J)',data:hs.map(function(h){return m*g*(H-h);}),borderColor:'#F5C518',tension:0,pointRadius:3},
-        {label:'Ec (J)',data:hs.map(function(h){return m*g*h;}),borderColor:'#34d399',tension:0,pointRadius:3},
-        {label:'Et (J)',data:hs.map(function(){return m*g*H;}),borderColor:'#f87171',borderDash:[5,3],pointRadius:0}
-      ]);
+      mkLine('chart1',hs.map(function(h){return h+'m';}),[ {label:'Ep (J)',data:hs.map(function(h){return 2*9.8*(10-h);}),borderColor:'#F5C518',tension:0,pointRadius:3},{label:'Ec (J)',data:hs.map(function(h){return 2*9.8*h;}),borderColor:'#34d399',tension:0,pointRadius:3},{label:'Et (J)',data:hs.map(function(){return 2*9.8*10;}),borderColor:'#f87171',borderDash:[5,3],pointRadius:0}]);
     } else if(t.includes('termodin')||t.includes('calor')){
-      mkLine('chart1',[0,1,2,3,4,5,6,7,8,9,10,11,12],[{label:'Temperatura (C)',data:[20,40,60,80,100,100,100,115,130,145,160,180,200],borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3,pointRadius:4}]);
+      mkLine('chart1',[0,1,2,3,4,5,6,7,8,9,10,11,12],[{label:'Temperatura (°C)',data:[20,40,60,80,100,100,100,115,130,145,160,180,200],borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3,pointRadius:4}]);
     } else {
-      mkDoughnut('chart1',['Mecanica','Electromagnetismo','Termodinamica','Optica','Fisica Moderna'],[35,25,15,15,10],['#38bdf8','#a78bfa','#f97316','#34d399','#F5C518']);
+      mkDoughnut('chart1',['Mecánica','Electromagnetismo','Termodinámica','Óptica','Física Moderna'],[35,25,15,15,10],['#38bdf8','#a78bfa','#f97316','#34d399','#F5C518']);
     }
   } else if(mat==='quimica'){
     if(t.includes('acido')||t.includes('ph')||t.includes('base')){
-      mkBar('chart1',['HCl','Limon','Vinagre','Cafe','Agua','Sangre','Jabon','NaOH'],[1,2.5,3,5,7,7.4,10,13],['#ef4444','#f97316','#f59e0b','#84cc16','#38bdf8','#6366f1','#8b5cf6','#3b82f6'],'pH');
-      var vol=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
-      var ph=[2,2.2,2.5,2.9,3.5,4,5,7,9,10.5,11.2,11.6,11.8,11.9,12,12];
-      mkLine('chart2',vol,[{label:'pH',data:ph,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,0.1)',fill:true,tension:0.4,pointRadius:3}]);
+      mkBar('chart1',['HCl','Limón','Vinagre','Café','Agua','Sangre','Jabón','NaOH'],[1,2.5,3,5,7,7.4,10,13],['#ef4444','#f97316','#f59e0b','#84cc16','#38bdf8','#6366f1','#8b5cf6','#3b82f6'],'pH');
+      mkLine('chart2',[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30],[{label:'pH',data:[2,2.2,2.5,2.9,3.5,4,5,7,9,10.5,11.2,11.6,11.8,11.9,12,12],borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,0.1)',fill:true,tension:0.4,pointRadius:3}]);
     } else if(t.includes('tabla')||t.includes('periodic')){
-      mkBar('chart1',['Li','Be','B','C','N','O','F','Ne'],[0.98,1.57,2.04,2.55,3.04,3.44,3.98,0],['#38bdf8','#34d399','#F5C518','#f97316','#a78bfa','#ef4444','#ec4899','#6b7fa8'],'Electronegatividad Pauling');
+      mkBar('chart1',['Li','Be','B','C','N','O','F','Ne'],[0.98,1.57,2.04,2.55,3.04,3.44,3.98,0],['#38bdf8','#34d399','#F5C518','#f97316','#a78bfa','#ef4444','#ec4899','#6b7fa8'],'Electronegatividad (Pauling)');
     } else {
-      mkDoughnut('chart1',['Sintesis','Descomposicion','Desplazamiento','Doble desplaz.','Combustion'],[20,15,25,25,15],['#38bdf8','#a78bfa','#34d399','#F5C518','#f97316']);
+      mkDoughnut('chart1',['Síntesis','Descomposición','Desplazamiento','Doble desplaz.','Combustión'],[20,15,25,25,15],['#38bdf8','#a78bfa','#34d399','#F5C518','#f97316']);
     }
   } else if(mat==='matematicas'){
     if(t.includes('derivada')){
       var xs=[];for(var x=-2.5;x<=2.5;x+=0.25)xs.push(parseFloat(x.toFixed(2)));
-      mkLine('chart1',xs,[
-        {label:'f(x)=x³-3x',data:xs.map(function(x){return x*x*x-3*x;}),borderColor:'#38bdf8',tension:0.4,pointRadius:0,borderWidth:2.5},
-        {label:"f'(x)=3x²-3",data:xs.map(function(x){return 3*x*x-3;}),borderColor:'#F5C518',borderDash:[5,3],tension:0.4,pointRadius:0,borderWidth:2}
-      ]);
+      mkLine('chart1',xs,[{label:'f(x)=x³−3x',data:xs.map(function(x){return x*x*x-3*x;}),borderColor:'#38bdf8',tension:0.4,pointRadius:0,borderWidth:2.5},{label:"f'(x)=3x²−3",data:xs.map(function(x){return 3*x*x-3;}),borderColor:'#F5C518',borderDash:[5,3],tension:0.4,pointRadius:0,borderWidth:2}]);
     } else if(t.includes('integral')){
       var xs2=[];for(var x=0;x<=3.1;x+=0.15)xs2.push(parseFloat(x.toFixed(2)));
       mkLine('chart1',xs2,[{label:'f(x)=x²',data:xs2.map(function(x){return x*x;}),borderColor:'#34d399',backgroundColor:'rgba(52,211,153,0.18)',fill:true,tension:0.4,pointRadius:0,borderWidth:2.5}]);
     } else if(t.includes('trigono')||t.includes('seno')||t.includes('coseno')){
       var xs3=[];for(var x=0;x<=6.4;x+=0.2)xs3.push(parseFloat(x.toFixed(1)));
-      mkLine('chart1',xs3,[
-        {label:'sin(x)',data:xs3.map(function(x){return Math.sin(x);}),borderColor:'#38bdf8',tension:0.4,pointRadius:0,borderWidth:2.5},
-        {label:'cos(x)',data:xs3.map(function(x){return Math.cos(x);}),borderColor:'#F5C518',tension:0.4,pointRadius:0,borderWidth:2.5}
-      ]);
+      mkLine('chart1',xs3,[{label:'sin(x)',data:xs3.map(function(x){return Math.sin(x);}),borderColor:'#38bdf8',tension:0.4,pointRadius:0,borderWidth:2.5},{label:'cos(x)',data:xs3.map(function(x){return Math.cos(x);}),borderColor:'#F5C518',tension:0.4,pointRadius:0,borderWidth:2.5}]);
     } else if(t.includes('probabilidad')){
       var xs4=[];for(var x=-3.5;x<=3.5;x+=0.25)xs4.push(parseFloat(x.toFixed(2)));
       mkLine('chart1',xs4,[{label:'Normal N(0,1)',data:xs4.map(function(x){return (1/Math.sqrt(2*Math.PI))*Math.exp(-0.5*x*x);}),borderColor:'#a78bfa',backgroundColor:'rgba(139,92,246,0.15)',fill:true,tension:0.4,pointRadius:0,borderWidth:2.5}]);
     } else {
       var xs5=[-3,-2,-1,0,1,2,3];
-      mkLine('chart1',xs5,[
-        {label:'y=x²',data:xs5.map(function(x){return x*x;}),borderColor:'#38bdf8',tension:0.4,pointRadius:4},
-        {label:'y=|x|',data:xs5.map(function(x){return Math.abs(x);}),borderColor:'#F5C518',tension:0,pointRadius:4}
-      ]);
+      mkLine('chart1',xs5,[{label:'y=x²',data:xs5.map(function(x){return x*x;}),borderColor:'#38bdf8',tension:0.4,pointRadius:4},{label:'y=|x|',data:xs5.map(function(x){return Math.abs(x);}),borderColor:'#F5C518',tension:0,pointRadius:4}]);
     }
   } else if(mat==='biologia'){
-    if(t.includes('celula')){
-      mkDoughnut('chart1',['Agua (70%)','Proteinas (18%)','Lipidos (5%)','ADN/ARN (4%)','Minerales (3%)'],[70,18,5,4,3],['#38bdf8','#34d399','#F5C518','#a78bfa','#f97316']);
-      mkDoughnut('chart2',['G1 (40%)','S-Sintesis (35%)','G2 (15%)','Mitosis (10%)'],[40,35,15,10],['#38bdf8','#F5C518','#34d399','#a78bfa']);
+    if(t.includes('célula')||t.includes('celula')){
+      mkDoughnut('chart1',['Agua (70%)','Proteínas (18%)','Lípidos (5%)','ADN/ARN (4%)','Minerales (3%)'],[70,18,5,4,3],['#38bdf8','#34d399','#F5C518','#a78bfa','#f97316']);
+      mkDoughnut('chart2',['G1 (40%)','S-Síntesis (35%)','G2 (15%)','Mitosis (10%)'],[40,35,15,10],['#38bdf8','#F5C518','#34d399','#a78bfa']);
     } else if(t.includes('fotosint')){
-      mkLine('chart1',[0,100,200,400,600,800,1000,1200,1400],[{label:'Tasa fotosintetica (umol O2/m2·s)',data:[0,5,10,17,22,25,27,28,28],borderColor:'#34d399',backgroundColor:'rgba(52,211,153,0.12)',fill:true,tension:0.4,pointRadius:4}]);
-    } else if(t.includes('genetica')){
-      mkBar('chart1',['AA (dom.)','Aa (het.)','aa (rec.)','AA:Aa:aa'],[25,50,25,0],['#34d399','#F5C518','#ef4444','#6b7fa8'],'Proporcion genotipica F2 (%)');
+      mkLine('chart1',[0,100,200,400,600,800,1000,1200,1400],[{label:'Tasa fotosintética (μmol O₂/m²·s)',data:[0,5,10,17,22,25,27,28,28],borderColor:'#34d399',backgroundColor:'rgba(52,211,153,0.12)',fill:true,tension:0.4,pointRadius:4}]);
+    } else if(t.includes('genética')||t.includes('genetica')){
+      mkBar('chart1',['AA (dom.)','Aa (het.)','aa (rec.)'],[25,50,25],['#34d399','#F5C518','#ef4444'],'Proporción genotípica F2 (%)');
     } else {
       mkDoughnut('chart1',['Bacterias','Protistas','Hongos','Plantas','Animales'],[15,10,10,25,40],['#38bdf8','#34d399','#F5C518','#a78bfa','#f97316']);
     }
   } else if(mat==='salud'){
     if(t.includes('hipertension')||t.includes('presion')){
-      mkBar('chart1',['Normal\n<120','Elevada\n120-129','HTA G1\n130-139','HTA G2\n>=140','Crisis\n>180'],[120,125,135,150,190],['#34d399','#84cc16','#F5C518','#f97316','#ef4444'],'Sistolica mmHg');
-      mkBar('chart2',['Dieta DASH','Menos sal','Ejercicio','Perder peso','Sin tabaco'],[11,5.1,4.9,4.4,3.5],['#38bdf8','#34d399','#F5C518','#a78bfa','#f97316'],'Reduccion PA sistolica (mmHg)');
+      mkBar('chart1',['Normal <120','Elevada 120-129','HTA G1 130-139','HTA G2 ≥140','Crisis >180'],[120,125,135,150,190],['#34d399','#84cc16','#F5C518','#f97316','#ef4444'],'Sistólica (mmHg)');
+      mkBar('chart2',['Dieta DASH','Sal <5g/día','Ejercicio','−5kg peso','Sin tabaco'],[11,5.1,4.9,4.4,3.5],['#38bdf8','#34d399','#F5C518','#a78bfa','#f97316'],'Reducción PA sistólica (mmHg)');
     } else if(t.includes('diabetes')||t.includes('glucosa')){
-      mkBar('chart1',['Normal\n70-99','Prediabetes\n100-125','Diabetes\n>=126'],[85,112,145],['#34d399','#F5C518','#ef4444'],'Glucosa ayunas (mg/dL)');
-      mkLine('chart2',[0,0.5,1,1.5,2,2.5,3],[
-        {label:'Normal',data:[90,130,140,130,100,90,90],borderColor:'#34d399',tension:0.4,pointRadius:4},
-        {label:'Diabetico T2',data:[100,190,220,200,180,160,145],borderColor:'#ef4444',tension:0.4,pointRadius:4}
-      ]);
+      mkBar('chart1',['Normal 70-99','Prediabetes 100-125','Diabetes ≥126'],[85,112,145],['#34d399','#F5C518','#ef4444'],'Glucosa ayunas (mg/dL)');
+      mkLine('chart2',[0,0.5,1,1.5,2,2.5,3],[{label:'Normal',data:[90,130,140,130,100,90,90],borderColor:'#34d399',tension:0.4,pointRadius:4},{label:'Diabético T2',data:[100,190,220,200,180,160,145],borderColor:'#ef4444',tension:0.4,pointRadius:4}]);
     } else {
-      mkDoughnut('chart1',['Cardiovascular','Neoplasias','Respiratorio','Neurologico','Otras'],[32,22,11,9,26],['#ef4444','#a78bfa','#38bdf8','#F5C518','#6b7fa8']);
+      mkDoughnut('chart1',['Cardiovascular','Neoplasias','Respiratorio','Neurológico','Otras'],[32,22,11,9,26],['#ef4444','#a78bfa','#38bdf8','#F5C518','#6b7fa8']);
     }
   }
 }
 
-/* ── ESQUEMA SVG ── */
+/* ══ ESQUEMA SVG ══ */
 function buildEsquema(mat,tema){
   var t=tema.toLowerCase();
-
   if(mat==='fisica'&&(t.includes('newton')||t.includes('fuerza'))){
-    return '<div class="schema-wrap"><div class="schema-title">Diagrama de Cuerpo Libre - 2da Ley Newton</div>'+
-    '<svg class="schema-svg" viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg">'+
-    '<rect width="380" height="220" fill="#0D1628" rx="12"/>'+
-    '<rect x="150" y="90" width="80" height="60" fill="#1e3a5f" stroke="#38bdf8" stroke-width="2" rx="8"/>'+
-    '<text x="190" y="125" fill="#38bdf8" font-size="11" text-anchor="middle" font-family="monospace">m = 5 kg</text>'+
-    '<line x1="230" y1="120" x2="310" y2="120" stroke="#F5C518" stroke-width="3" marker-end="url(#a1)"/>'+
-    '<text x="270" y="110" fill="#F5C518" font-size="10" text-anchor="middle">F = 20N</text>'+
-    '<line x1="150" y1="120" x2="70" y2="120" stroke="#ef4444" stroke-width="3" marker-end="url(#a2)"/>'+
-    '<text x="110" y="110" fill="#ef4444" font-size="10" text-anchor="middle">fr = 10N</text>'+
-    '<line x1="190" y1="150" x2="190" y2="195" stroke="#a78bfa" stroke-width="3" marker-end="url(#a3)"/>'+
-    '<text x="215" y="185" fill="#a78bfa" font-size="10">W=mg</text>'+
-    '<line x1="190" y1="90" x2="190" y2="45" stroke="#34d399" stroke-width="3" marker-end="url(#a4)"/>'+
-    '<text x="205" y="62" fill="#34d399" font-size="10">N</text>'+
-    '<line x1="60" y1="150" x2="320" y2="150" stroke="#263352" stroke-width="2" stroke-dasharray="5,3"/>'+
-    '<text x="190" y="20" fill="#ffffff" font-size="10" text-anchor="middle">F_neta=10N → a=F/m=2 m/s2</text>'+
-    '<defs>'+
-    '<marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#F5C518"/></marker>'+
-    '<marker id="a2" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto"><path d="M8,0 L8,6 L0,3 z" fill="#ef4444"/></marker>'+
-    '<marker id="a3" markerWidth="8" markerHeight="8" refX="3" refY="6" orient="auto"><path d="M0,0 L6,0 L3,8 z" fill="#a78bfa"/></marker>'+
-    '<marker id="a4" markerWidth="8" markerHeight="8" refX="3" refY="2" orient="auto"><path d="M0,8 L6,8 L3,0 z" fill="#34d399"/></marker>'+
-    '</defs></svg></div>';
+    return '<div class="schema-wrap"><div class="schema-title">⚛️ Diagrama de Cuerpo Libre — 2ª Ley Newton</div><svg class="schema-svg" viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg"><rect width="380" height="220" fill="#0D1628" rx="12"/><rect x="150" y="90" width="80" height="60" fill="#1e3a5f" stroke="#38bdf8" stroke-width="2" rx="8"/><text x="190" y="125" fill="#38bdf8" font-size="11" text-anchor="middle" font-family="monospace">m = 5 kg</text><line x1="230" y1="120" x2="310" y2="120" stroke="#F5C518" stroke-width="3" marker-end="url(#a1)"/><text x="270" y="110" fill="#F5C518" font-size="10" text-anchor="middle">F = 20N →</text><line x1="150" y1="120" x2="70" y2="120" stroke="#ef4444" stroke-width="3" marker-end="url(#a2)"/><text x="110" y="110" fill="#ef4444" font-size="10" text-anchor="middle">← fr = 10N</text><line x1="190" y1="150" x2="190" y2="195" stroke="#a78bfa" stroke-width="3" marker-end="url(#a3)"/><text x="215" y="185" fill="#a78bfa" font-size="10">W=mg</text><line x1="190" y1="90" x2="190" y2="45" stroke="#34d399" stroke-width="3" marker-end="url(#a4)"/><text x="205" y="62" fill="#34d399" font-size="10">N ↑</text><line x1="60" y1="150" x2="320" y2="150" stroke="#263352" stroke-width="2" stroke-dasharray="5,3"/><text x="190" y="20" fill="#ffffff" font-size="10" text-anchor="middle">F_neta = 20−10 = 10N → a = F/m = 2 m/s²</text><defs><marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#F5C518"/></marker><marker id="a2" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto"><path d="M8,0 L8,6 L0,3 z" fill="#ef4444"/></marker><marker id="a3" markerWidth="8" markerHeight="8" refX="3" refY="6" orient="auto"><path d="M0,0 L6,0 L3,8 z" fill="#a78bfa"/></marker><marker id="a4" markerWidth="8" markerHeight="8" refX="3" refY="2" orient="auto"><path d="M0,8 L6,8 L3,0 z" fill="#34d399"/></marker></defs></svg></div>';
   }
-
-  if(mat==='biologia'&&(t.includes('celula'))){
-    return '<div class="schema-wrap"><div class="schema-title">Celula Animal - Organelos Principales</div>'+
-    '<svg class="schema-svg" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">'+
-    '<rect width="380" height="260" fill="#0D1628" rx="12"/>'+
-    '<ellipse cx="190" cy="130" rx="155" ry="110" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="8,4"/>'+
-    '<ellipse cx="175" cy="120" rx="50" ry="40" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="2"/>'+
-    '<text x="175" y="115" fill="#a78bfa" font-size="10" text-anchor="middle">Nucleo</text>'+
-    '<text x="175" y="128" fill="#c4b5fd" font-size="8" text-anchor="middle">(ADN)</text>'+
-    '<ellipse cx="290" cy="100" rx="28" ry="14" fill="rgba(245,197,24,0.12)" stroke="#F5C518" stroke-width="1.5"/>'+
-    '<text x="290" y="104" fill="#F5C518" font-size="8" text-anchor="middle">Mitocondria</text>'+
-    '<path d="M235,148 Q255,138 275,148 Q295,158 315,148" fill="none" stroke="#38bdf8" stroke-width="2"/>'+
-    '<text x="275" y="168" fill="#38bdf8" font-size="8" text-anchor="middle">R.Endoplasmatico</text>'+
-    '<circle cx="100" cy="150" r="5" fill="#f97316"/>'+
-    '<circle cx="115" cy="160" r="5" fill="#f97316"/>'+
-    '<circle cx="130" cy="145" r="5" fill="#f97316"/>'+
-    '<text x="115" y="180" fill="#f97316" font-size="8" text-anchor="middle">Ribosomas</text>'+
-    '<path d="M240,185 Q255,178 270,185 Q255,193 240,185" fill="none" stroke="#ec4899" stroke-width="2"/>'+
-    '<text x="255" y="205" fill="#ec4899" font-size="8" text-anchor="middle">A.Golgi</text>'+
-    '<circle cx="120" cy="95" r="16" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-width="1.5"/>'+
-    '<text x="120" y="99" fill="#38bdf8" font-size="7" text-anchor="middle">Vacuola</text>'+
-    '<text x="330" y="50" fill="#34d399" font-size="8" text-anchor="middle">Membrana</text>'+
-    '<line x1="305" y1="55" x2="340" y2="48" stroke="#34d399" stroke-width="1"/>'+
-    '</svg></div>';
+  if(mat==='biologia'&&(t.includes('célula')||t.includes('celula'))){
+    return '<div class="schema-wrap"><div class="schema-title">🌿 Célula Animal — Organelos Principales</div><svg class="schema-svg" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg"><rect width="380" height="260" fill="#0D1628" rx="12"/><ellipse cx="190" cy="130" rx="155" ry="110" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="8,4"/><ellipse cx="175" cy="120" rx="50" ry="40" fill="rgba(167,139,250,0.15)" stroke="#a78bfa" stroke-width="2"/><text x="175" y="115" fill="#a78bfa" font-size="10" text-anchor="middle">Núcleo</text><text x="175" y="128" fill="#c4b5fd" font-size="8" text-anchor="middle">(ADN)</text><ellipse cx="290" cy="100" rx="28" ry="14" fill="rgba(245,197,24,0.12)" stroke="#F5C518" stroke-width="1.5"/><text x="290" y="104" fill="#F5C518" font-size="8" text-anchor="middle">Mitocondria</text><path d="M235,148 Q255,138 275,148 Q295,158 315,148" fill="none" stroke="#38bdf8" stroke-width="2"/><text x="275" y="168" fill="#38bdf8" font-size="8" text-anchor="middle">R.Endoplásmico</text><circle cx="100" cy="150" r="5" fill="#f97316"/><circle cx="115" cy="160" r="5" fill="#f97316"/><circle cx="130" cy="145" r="5" fill="#f97316"/><text x="115" y="180" fill="#f97316" font-size="8" text-anchor="middle">Ribosomas</text><path d="M240,185 Q255,178 270,185 Q255,193 240,185" fill="none" stroke="#ec4899" stroke-width="2"/><text x="255" y="205" fill="#ec4899" font-size="8" text-anchor="middle">A.Golgi</text><circle cx="120" cy="95" r="16" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-width="1.5"/><text x="120" y="99" fill="#38bdf8" font-size="7" text-anchor="middle">Vacuola</text><text x="330" y="50" fill="#34d399" font-size="8" text-anchor="middle">Membrana</text><line x1="305" y1="55" x2="340" y2="48" stroke="#34d399" stroke-width="1"/></svg></div>';
   }
-
   if(mat==='quimica'&&(t.includes('acido')||t.includes('ph')||t.includes('base'))){
-    return '<div class="schema-wrap"><div class="schema-title">Escala de pH Visual</div>'+
-    '<svg class="schema-svg" viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">'+
-    '<rect width="380" height="140" fill="#0D1628" rx="12"/>'+
-    '<defs><linearGradient id="phG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ef4444"/><stop offset="50%" stop-color="#34d399"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs>'+
-    '<rect x="20" y="55" width="340" height="28" fill="url(#phG)" rx="14"/>'+
-    '<text x="20" y="48" fill="#ef4444" font-size="10" text-anchor="middle">0</text>'+
-    '<text x="53" y="48" fill="#f97316" font-size="10" text-anchor="middle">2</text>'+
-    '<text x="87" y="48" fill="#f59e0b" font-size="10" text-anchor="middle">4</text>'+
-    '<text x="122" y="48" fill="#84cc16" font-size="10" text-anchor="middle">6</text>'+
-    '<text x="155" y="48" fill="#34d399" font-size="10" text-anchor="middle">7</text>'+
-    '<text x="207" y="48" fill="#60a5fa" font-size="10" text-anchor="middle">9</text>'+
-    '<text x="265" y="48" fill="#818cf8" font-size="10" text-anchor="middle">12</text>'+
-    '<text x="360" y="48" fill="#3b82f6" font-size="10" text-anchor="middle">14</text>'+
-    '<text x="53" y="100" fill="white" font-size="7" text-anchor="middle">HCl</text>'+
-    '<text x="87" y="100" fill="white" font-size="7" text-anchor="middle">Limon</text>'+
-    '<text x="155" y="100" fill="white" font-size="7" text-anchor="middle">Agua</text>'+
-    '<text x="190" y="100" fill="white" font-size="7" text-anchor="middle">Sangre</text>'+
-    '<text x="265" y="100" fill="white" font-size="7" text-anchor="middle">Jabon</text>'+
-    '<text x="340" y="100" fill="white" font-size="7" text-anchor="middle">NaOH</text>'+
-    '<text x="65" y="130" fill="#ef4444" font-size="10" text-anchor="middle">ACIDO</text>'+
-    '<text x="190" y="130" fill="#34d399" font-size="10" text-anchor="middle">NEUTRO</text>'+
-    '<text x="315" y="130" fill="#3b82f6" font-size="10" text-anchor="middle">BASE</text>'+
-    '</svg></div>';
+    return '<div class="schema-wrap"><div class="schema-title">🧪 Escala de pH Visual</div><svg class="schema-svg" viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg"><rect width="380" height="140" fill="#0D1628" rx="12"/><defs><linearGradient id="phG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ef4444"/><stop offset="50%" stop-color="#34d399"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><rect x="20" y="55" width="340" height="28" fill="url(#phG)" rx="14"/><text x="20" y="48" fill="#ef4444" font-size="10" text-anchor="middle">0</text><text x="53" y="48" fill="#f97316" font-size="10" text-anchor="middle">2</text><text x="87" y="48" fill="#f59e0b" font-size="10" text-anchor="middle">4</text><text x="122" y="48" fill="#84cc16" font-size="10" text-anchor="middle">6</text><text x="155" y="48" fill="#34d399" font-size="10" text-anchor="middle">7</text><text x="207" y="48" fill="#60a5fa" font-size="10" text-anchor="middle">9</text><text x="265" y="48" fill="#818cf8" font-size="10" text-anchor="middle">12</text><text x="360" y="48" fill="#3b82f6" font-size="10" text-anchor="middle">14</text><text x="53" y="100" fill="white" font-size="7" text-anchor="middle">HCl</text><text x="87" y="100" fill="white" font-size="7" text-anchor="middle">Limón</text><text x="155" y="100" fill="white" font-size="7" text-anchor="middle">Agua</text><text x="190" y="100" fill="white" font-size="7" text-anchor="middle">Sangre</text><text x="265" y="100" fill="white" font-size="7" text-anchor="middle">Jabón</text><text x="340" y="100" fill="white" font-size="7" text-anchor="middle">NaOH</text><text x="65" y="130" fill="#ef4444" font-size="10" text-anchor="middle">◀ ÁCIDO</text><text x="190" y="130" fill="#34d399" font-size="10" text-anchor="middle">NEUTRO</text><text x="315" y="130" fill="#3b82f6" font-size="10" text-anchor="middle">BASE ▶</text></svg></div>';
   }
-
   if(mat==='matematicas'&&(t.includes('trigono')||t.includes('seno')||t.includes('coseno'))){
-    return '<div class="schema-wrap"><div class="schema-title">Circulo Unitario - Trigonometria</div>'+
-    '<svg class="schema-svg" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">'+
-    '<rect width="300" height="260" fill="#0D1628" rx="12"/>'+
-    '<line x1="150" y1="20" x2="150" y2="240" stroke="#263352" stroke-width="1.5"/>'+
-    '<line x1="20" y1="130" x2="280" y2="130" stroke="#263352" stroke-width="1.5"/>'+
-    '<circle cx="150" cy="130" r="95" fill="none" stroke="#263352" stroke-width="1.5"/>'+
-    '<line x1="150" y1="130" x2="217" y2="63" stroke="#F5C518" stroke-width="2"/>'+
-    '<line x1="217" y1="63" x2="217" y2="130" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,3"/>'+
-    '<text x="228" y="100" fill="#38bdf8" font-size="10">sin</text>'+
-    '<line x1="150" y1="130" x2="217" y2="130" stroke="#34d399" stroke-width="2" stroke-dasharray="5,3"/>'+
-    '<text x="175" y="148" fill="#34d399" font-size="10">cos</text>'+
-    '<circle cx="217" cy="63" r="5" fill="#F5C518"/>'+
-    '<text x="172" y="118" fill="#f97316" font-size="9">45</text>'+
-    '<text x="280" y="127" fill="#6b7fa8" font-size="10">x</text>'+
-    '<text x="153" y="18" fill="#6b7fa8" font-size="10">y</text>'+
-    '<text x="150" y="255" fill="#94a3b8" font-size="8" text-anchor="middle">sin(45)=cos(45)=0.707 | tan(45)=1</text>'+
-    '</svg></div>';
+    return '<div class="schema-wrap"><div class="schema-title">📐 Círculo Unitario — Trigonometría</div><svg class="schema-svg" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="260" fill="#0D1628" rx="12"/><line x1="150" y1="20" x2="150" y2="240" stroke="#263352" stroke-width="1.5"/><line x1="20" y1="130" x2="280" y2="130" stroke="#263352" stroke-width="1.5"/><circle cx="150" cy="130" r="95" fill="none" stroke="#263352" stroke-width="1.5"/><line x1="150" y1="130" x2="217" y2="63" stroke="#F5C518" stroke-width="2"/><line x1="217" y1="63" x2="217" y2="130" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,3"/><text x="228" y="100" fill="#38bdf8" font-size="11">sinθ</text><line x1="150" y1="130" x2="217" y2="130" stroke="#34d399" stroke-width="2" stroke-dasharray="5,3"/><text x="175" y="148" fill="#34d399" font-size="11">cosθ</text><circle cx="217" cy="63" r="5" fill="#F5C518"/><text x="172" y="118" fill="#f97316" font-size="9">45°</text><text x="280" y="127" fill="#6b7fa8" font-size="10">x</text><text x="153" y="18" fill="#6b7fa8" font-size="10">y</text><text x="150" y="255" fill="#94a3b8" font-size="8" text-anchor="middle">sin(45°)=cos(45°)=0.707 | tan(45°)=1</text></svg></div>';
   }
-
   if(mat==='salud'&&(t.includes('hipertension')||t.includes('presion'))){
-    return '<div class="schema-wrap"><div class="schema-title">Medicion de Presion Arterial - Clasificacion</div>'+
-    '<svg class="schema-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">'+
-    '<rect width="380" height="200" fill="#0D1628" rx="12"/>'+
-    '<rect x="20" y="30" width="160" height="140" fill="rgba(25,32,53,0.8)" stroke="#263352" rx="10" stroke-width="1.5"/>'+
-    '<text x="100" y="55" fill="#94a3b8" font-size="10" text-anchor="middle">CLASIFICACION PA</text>'+
-    '<text x="100" y="78" fill="#34d399" font-size="10" text-anchor="middle">Normal: &lt;120/80</text>'+
-    '<text x="100" y="96" fill="#84cc16" font-size="10" text-anchor="middle">Elevada: 120-129</text>'+
-    '<text x="100" y="114" fill="#F5C518" font-size="10" text-anchor="middle">HTA G1: 130-139</text>'+
-    '<text x="100" y="132" fill="#f97316" font-size="10" text-anchor="middle">HTA G2: &gt;=140</text>'+
-    '<text x="100" y="150" fill="#ef4444" font-size="10" text-anchor="middle">Crisis: &gt;180</text>'+
-    '<rect x="200" y="30" width="160" height="140" fill="rgba(25,32,53,0.8)" stroke="#263352" rx="10" stroke-width="1.5"/>'+
-    '<text x="280" y="55" fill="#94a3b8" font-size="10" text-anchor="middle">REDUCCION SIN FARMACOS</text>'+
-    '<text x="280" y="75" fill="#38bdf8" font-size="9" text-anchor="middle">Dieta DASH: -11 mmHg</text>'+
-    '<text x="280" y="93" fill="#38bdf8" font-size="9" text-anchor="middle">Sal &lt;5g/d: -5 mmHg</text>'+
-    '<text x="280" y="111" fill="#38bdf8" font-size="9" text-anchor="middle">Ejercicio: -5 mmHg</text>'+
-    '<text x="280" y="129" fill="#38bdf8" font-size="9" text-anchor="middle">-5kg peso: -4 mmHg</text>'+
-    '<text x="280" y="147" fill="#38bdf8" font-size="9" text-anchor="middle">No tabaco: -3 mmHg</text>'+
-    '</svg></div>';
+    return '<div class="schema-wrap"><div class="schema-title">❤️ Clasificación y Factores — Hipertensión</div><svg class="schema-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg"><rect width="380" height="200" fill="#0D1628" rx="12"/><rect x="15" y="20" width="165" height="165" fill="rgba(25,32,53,0.8)" stroke="#263352" rx="10" stroke-width="1.5"/><text x="97" y="42" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">CLASIFICACIÓN PA</text><text x="97" y="62" fill="#34d399" font-size="10" text-anchor="middle">✅ Normal: &lt;120/80</text><text x="97" y="80" fill="#84cc16" font-size="10" text-anchor="middle">⚠️ Elevada: 120-129</text><text x="97" y="98" fill="#F5C518" font-size="10" text-anchor="middle">🔶 HTA G1: 130-139</text><text x="97" y="116" fill="#f97316" font-size="10" text-anchor="middle">🔴 HTA G2: ≥140</text><text x="97" y="134" fill="#ef4444" font-size="10" text-anchor="middle">🚨 Crisis: &gt;180</text><text x="97" y="158" fill="#6b7fa8" font-size="8" text-anchor="middle">(mmHg sistólica / diastólica)</text><rect x="200" y="20" width="165" height="165" fill="rgba(25,32,53,0.8)" stroke="#263352" rx="10" stroke-width="1.5"/><text x="282" y="42" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">REDUCCIÓN SIN FÁRMACOS</text><text x="282" y="62" fill="#38bdf8" font-size="9" text-anchor="middle">🥗 DASH: −11 mmHg</text><text x="282" y="80" fill="#38bdf8" font-size="9" text-anchor="middle">🧂 Sal &lt;5g/d: −5 mmHg</text><text x="282" y="98" fill="#38bdf8" font-size="9" text-anchor="middle">🏃 Ejercicio: −5 mmHg</text><text x="282" y="116" fill="#38bdf8" font-size="9" text-anchor="middle">⚖️ −5kg: −4 mmHg</text><text x="282" y="134" fill="#38bdf8" font-size="9" text-anchor="middle">🚭 Sin tabaco: −3 mmHg</text><text x="282" y="158" fill="#6b7fa8" font-size="8" text-anchor="middle">(Evidencia nivel A)</text></svg></div>';
   }
-
-  // Esquema generico
-  return '<div class="schema-wrap"><div class="schema-title">Mapa Conceptual - '+tema+'</div>'+
-  '<svg class="schema-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">'+
-  '<rect width="380" height="200" fill="#0D1628" rx="12"/>'+
-  '<ellipse cx="190" cy="100" rx="70" ry="30" fill="rgba(245,197,24,0.12)" stroke="#F5C518" stroke-width="2"/>'+
-  '<text x="190" y="105" fill="#F5C518" font-size="11" text-anchor="middle" font-weight="bold">'+tema.slice(0,16)+'</text>'+
-  '<ellipse cx="60" cy="48" rx="48" ry="22" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-width="1.5"/>'+
-  '<text x="60" y="52" fill="#38bdf8" font-size="9" text-anchor="middle">Definicion</text>'+
-  '<line x1="108" y1="65" x2="130" y2="82" stroke="#263352" stroke-width="1.5"/>'+
-  '<ellipse cx="320" cy="48" rx="48" ry="22" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/>'+
-  '<text x="320" y="52" fill="#a78bfa" font-size="9" text-anchor="middle">Formulas</text>'+
-  '<line x1="272" y1="65" x2="250" y2="82" stroke="#263352" stroke-width="1.5"/>'+
-  '<ellipse cx="60" cy="155" rx="48" ry="22" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/>'+
-  '<text x="60" y="159" fill="#34d399" font-size="9" text-anchor="middle">Ejercicios</text>'+
-  '<line x1="108" y1="137" x2="130" y2="118" stroke="#263352" stroke-width="1.5"/>'+
-  '<ellipse cx="320" cy="155" rx="48" ry="22" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="1.5"/>'+
-  '<text x="320" y="159" fill="#f97316" font-size="9" text-anchor="middle">Aplicaciones</text>'+
-  '<line x1="272" y1="137" x2="250" y2="118" stroke="#263352" stroke-width="1.5"/>'+
-  '</svg></div>';
+  // Genérico
+  return '<div class="schema-wrap"><div class="schema-title">🗂️ Mapa Conceptual — '+tema+'</div><svg class="schema-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg"><rect width="380" height="200" fill="#0D1628" rx="12"/><ellipse cx="190" cy="100" rx="68" ry="30" fill="rgba(245,197,24,0.12)" stroke="#F5C518" stroke-width="2"/><text x="190" y="96" fill="#F5C518" font-size="11" text-anchor="middle" font-weight="bold">'+tema.slice(0,16)+'</text><text x="190" y="110" fill="#FFD95A" font-size="8" text-anchor="middle">'+NOMBRES[mat]+'</text><ellipse cx="60" cy="48" rx="48" ry="22" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-width="1.5"/><text x="60" y="52" fill="#38bdf8" font-size="9" text-anchor="middle">📖 Definición</text><line x1="108" y1="65" x2="132" y2="82" stroke="#263352" stroke-width="1.5"/><ellipse cx="320" cy="48" rx="48" ry="22" fill="rgba(167,139,250,0.1)" stroke="#a78bfa" stroke-width="1.5"/><text x="320" y="52" fill="#a78bfa" font-size="9" text-anchor="middle">🔣 Fórmulas</text><line x1="272" y1="65" x2="248" y2="82" stroke="#263352" stroke-width="1.5"/><ellipse cx="60" cy="155" rx="48" ry="22" fill="rgba(52,211,153,0.1)" stroke="#34d399" stroke-width="1.5"/><text x="60" y="159" fill="#34d399" font-size="9" text-anchor="middle">✏️ Ejercicios</text><line x1="108" y1="137" x2="132" y2="118" stroke="#263352" stroke-width="1.5"/><ellipse cx="320" cy="155" rx="48" ry="22" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="1.5"/><text x="320" y="159" fill="#f97316" font-size="9" text-anchor="middle">💡 Aplicaciones</text><line x1="272" y1="137" x2="248" y2="118" stroke="#263352" stroke-width="1.5"/></svg></div>';
 }
 
-/* ── EJERCICIOS INTERACTIVOS ── */
+/* ══ EJERCICIOS ══ */
 function buildEjerciciosUI(mat,tema){
   var t=tema.toLowerCase();
   var EJS=getEjsInteractivos(mat,t);
-  if(!EJS||EJS.length===0){
-    return '<div style="color:var(--muted);text-align:center;padding:40px">Escribe un tema especifico para ejercicios interactivos (ej: "Newton", "pH", "Derivadas")</div>';
-  }
+  if(!EJS||EJS.length===0)return '<div style="color:var(--muted);text-align:center;padding:36px">✏️ Escribe un tema específico para ver ejercicios interactivos con corrección automática</div>';
   return EJS.map(function(e,i){
     return '<div class="ejercicio-card">'+
-      '<div class="ejercicio-num">EJERCICIO '+(i+1)+' - '+e.tipo+'</div>'+
-      '<div class="ejercicio-enunciado">'+e.enunciado+'</div>'+
-      '<div class="ejercicio-dato">'+e.datos+'</div>'+
+      '<div class="ejercicio-num">📝 EJERCICIO '+(i+1)+' — '+e.tipo+'</div>'+
+      '<div class="ejercicio-enunciado">❓ '+e.enunciado+'</div>'+
+      '<div class="ejercicio-dato">📋 Datos:\n'+e.datos+'</div>'+
       '<div class="input-verify-row">'+
         '<input class="ej-input" id="ei'+i+'" type="text" placeholder="Tu respuesta...">'+
-        '<button class="btn-check" onclick="verificar('+i+',\''+e.resp+'\',\''+e.unidad+'\')">Verificar</button>'+
+        '<button class="btn-check" onclick="verificar('+i+',\''+e.resp+'\',\''+e.unidad+'\')">✓ Verificar</button>'+
       '</div>'+
       '<div class="feedback" id="fb'+i+'"></div>'+
-      '<div class="solucion-box" id="sb'+i+'">'+e.sol+'</div>'+
+      '<div class="solucion-box" id="sb'+i+'">🔍 Solución paso a paso:\n\n'+e.sol+'</div>'+
     '</div>';
   }).join('');
 }
@@ -871,102 +1070,88 @@ function verificar(i,resp,unidad){
   var val=parseFloat((inp.value||'').replace(',','.'));
   var cor=parseFloat(resp);
   var ok=!isNaN(val)&&Math.abs(val-cor)/Math.max(Math.abs(cor),0.001)<0.05;
-  fb.style.display='block'; sb.style.display='block';
-  if(ok){
-    fb.className='feedback ok';
-    fb.textContent='Correcto! '+val+' '+unidad+' Excelente trabajo!';
-  } else {
-    fb.className='feedback no';
-    fb.textContent='Incorrecto. Tu respuesta: '+(inp.value||'vacio')+'. Revisa la solucion abajo.';
-  }
+  fb.style.display='block';sb.style.display='block';
+  if(ok){fb.className='feedback ok';fb.textContent='✅ ¡Correcto! '+val+' '+unidad+' — ¡Excelente!';}
+  else{fb.className='feedback no';fb.textContent='❌ Incorrecto. Tu respuesta: '+(inp.value||'vacío')+'. Revisa la solución ↓';}
 }
 
 function getEjsInteractivos(mat,t){
   var DB={
     fisica:{
       newton:[
-        {tipo:'2da Ley Newton',enunciado:'Una caja de 8 kg recibe 50N con rozamiento uk=0.3. Calcula la aceleracion. (g=9.8)',datos:'fr = uk x N = 0.3 x 78.4 = 23.52 N\nF_neta = 50 - 23.52 = 26.48 N\na = F_neta / m = ?',resp:'3.31',unidad:'m/s2',sol:'Paso 1: W = N = 8 x 9.8 = 78.4 N\nPaso 2: fr = 0.3 x 78.4 = 23.52 N\nPaso 3: F_neta = 50 - 23.52 = 26.48 N\nPaso 4: a = 26.48 / 8 = 3.31 m/s2'},
-        {tipo:'Peso vs Masa',enunciado:'Un objeto de 15 kg. Cuanto pesa en Newtons? (g=9.8)',datos:'Formula: W = m x g',resp:'147',unidad:'N',sol:'W = 15 x 9.8 = 147 N'},
+        {tipo:'2ª Ley de Newton',enunciado:'Una caja de 8 kg recibe 50 N con rozamiento μk=0.3. ¿Cuál es la aceleración? (g=9.8)',datos:'fr = μk × N = 0.3 × (8×9.8) = 23.52 N\nF_neta = 50 − 23.52 = 26.48 N\na = F_neta / m = ?',resp:'3.31',unidad:'m/s²',sol:'Paso 1: N = W = mg = 8×9.8 = 78.4 N\nPaso 2: fr = 0.3×78.4 = 23.52 N\nPaso 3: F_neta = 50−23.52 = 26.48 N\nPaso 4: a = 26.48/8 = 3.31 m/s²'},
+        {tipo:'Peso vs Masa',enunciado:'Un objeto de 15 kg. ¿Cuánto pesa en Newtons? (g=9.8)',datos:'Fórmula: W = m × g\nm = 15 kg | g = 9.8 m/s²',resp:'147',unidad:'N',sol:'W = 15 × 9.8 = 147 N'},
       ],
       cinemat:[
-        {tipo:'Velocidad Final',enunciado:'Objeto parte del reposo con a=4 m/s2. Velocidad a los 5 segundos?',datos:'v0=0, a=4 m/s2, t=5 s\nFormula: v = v0 + at',resp:'20',unidad:'m/s',sol:'v = 0 + 4 x 5 = 20 m/s'},
-        {tipo:'Distancia MUA',enunciado:'Auto acelera desde reposo a 3 m/s2 por 10s. Distancia recorrida?',datos:'v0=0, a=3 m/s2, t=10 s\nFormula: x = v0t + 0.5at2',resp:'150',unidad:'m',sol:'x = 0 + 0.5 x 3 x 100 = 150 m'},
+        {tipo:'Velocidad Final MUA',enunciado:'Objeto parte del reposo con a=4 m/s². ¿Velocidad a los 5 segundos?',datos:'v₀=0 | a=4 m/s² | t=5 s\nFórmula: v = v₀ + at',resp:'20',unidad:'m/s',sol:'v = 0 + 4×5 = 20 m/s'},
+        {tipo:'Distancia MUA',enunciado:'Auto acelera desde reposo a 3 m/s² por 10 s. ¿Distancia recorrida?',datos:'v₀=0 | a=3 m/s² | t=10 s\nFórmula: x = v₀t + ½at²',resp:'150',unidad:'m',sol:'x = 0 + 0.5×3×100 = 150 m'},
       ],
       energ:[
-        {tipo:'Energia Cinetica',enunciado:'Objeto de 5 kg a 8 m/s. Cuanta energia cinetica tiene?',datos:'m=5 kg, v=8 m/s\nFormula: Ec = 0.5 x m x v2',resp:'160',unidad:'J',sol:'Ec = 0.5 x 5 x 64 = 160 J'},
+        {tipo:'Energía Cinética',enunciado:'Objeto de 5 kg viaja a 8 m/s. ¿Cuánta energía cinética tiene?',datos:'m=5 kg | v=8 m/s\nFórmula: Ec = ½mv²',resp:'160',unidad:'J',sol:'Ec = 0.5×5×64 = 160 J'},
       ]
     },
     quimica:{
       acido:[
-        {tipo:'Calculo pH',enunciado:'HCl 0.001 M (acido fuerte). Calcula el pH.',datos:'HCl ioniza completamente\n[H+] = 0.001 = 10^-3 M\npH = -log[H+]',resp:'3',unidad:'',sol:'pH = -log(10^-3) = 3'},
-        {tipo:'pH a pOH',enunciado:'Si el pH de una solucion es 5, cual es su pOH?',datos:'pH + pOH = 14',resp:'9',unidad:'',sol:'pOH = 14 - 5 = 9'},
+        {tipo:'Cálculo de pH',enunciado:'HCl 0.001 M (ácido fuerte). Calcula el pH.',datos:'HCl ioniza completamente → [H⁺] = 0.001 M = 10⁻³ M\npH = −log[H⁺]',resp:'3',unidad:'',sol:'pH = −log(10⁻³) = 3'},
+        {tipo:'pH ↔ pOH',enunciado:'Si el pH de una solución es 5, ¿cuál es su pOH?',datos:'Relación: pH + pOH = 14',resp:'9',unidad:'',sol:'pOH = 14 − 5 = 9'},
       ]
     },
     matematicas:{
       derivada:[
-        {tipo:'Regla Potencia',enunciado:'Calcula f\'(x) en x=2 si f(x)=x3 (x al cubo)',datos:'Formula: (x^n)\'= n*x^(n-1)\nDeriva primero, luego evalua en x=2',resp:'12',unidad:'',sol:'f\'(x) = 3x2\nf\'(2) = 3 x 4 = 12'},
-        {tipo:'Punto Critico',enunciado:'En que x tiene punto critico f(x)=x2-6x+9?',datos:'Condicion: f\'(x) = 0\nDeriva y despeja x',resp:'3',unidad:'',sol:'f\'(x) = 2x - 6 = 0\nx = 3'},
+        {tipo:'Regla de la Potencia',enunciado:'Calcula f\'(x) en x=2 si f(x) = x³',datos:'Fórmula: (xⁿ)\' = n·xⁿ⁻¹\nDeriva y evalúa en x=2',resp:'12',unidad:'',sol:'f\'(x) = 3x²\nf\'(2) = 3×4 = 12'},
+        {tipo:'Punto Crítico',enunciado:'¿En qué x tiene punto crítico f(x) = x²−6x+9?',datos:'Condición: f\'(x) = 0\nDeriva e iguala a cero',resp:'3',unidad:'',sol:'f\'(x) = 2x−6 = 0\nx = 3 (mínimo)'},
       ],
       integral:[
-        {tipo:'Integral Definida',enunciado:'Calcula INT[0,2] 2x dx',datos:'Antiderivada de 2x es x2\nEvalua en limites [F(2) - F(0)]',resp:'4',unidad:'',sol:'INT 2x dx = x2\nF(2) = 4, F(0) = 0\nArea = 4 - 0 = 4'},
+        {tipo:'Integral Definida',enunciado:'Calcula ∫₀² 2x dx',datos:'Antiderivada de 2x es x²\nEvalúa: F(2) − F(0)',resp:'4',unidad:'',sol:'∫2x dx = x²\nF(2)=4, F(0)=0\nArea = 4'},
       ],
       trigono:[
-        {tipo:'Valor Exacto',enunciado:'Cuanto vale sin(90 grados)?',datos:'Recuerda valores especiales:\nsin(0)=0, sin(30)=0.5, sin(60)=0.866',resp:'1',unidad:'',sol:'sin(90) = 1\nEn el circulo unitario, punto (0,1) en 90 grados'},
+        {tipo:'Valor Exacto',enunciado:'¿Cuánto vale sin(90°)?',datos:'Recuerda: sin(0°)=0, sin(30°)=0.5, sin(60°)=0.866',resp:'1',unidad:'',sol:'sin(90°) = 1\nEn el círculo unitario, punto (0,1)'},
       ],
       probabilidad:[
-        {tipo:'Probabilidad Basica',enunciado:'En una baraja de 52 cartas, probabilidad de sacar un As?',datos:'Hay 4 Ases en 52 cartas\nP = casos favorables / casos totales',resp:'0.077',unidad:'(7.7%)',sol:'P = 4/52 = 0.0769 aprox 0.077 (7.7%)'},
+        {tipo:'Probabilidad Básica',enunciado:'Baraja de 52 cartas. ¿Probabilidad de sacar un As? (responde en decimales)',datos:'Hay 4 Ases en 52 cartas\nP = casos favorables / total',resp:'0.077',unidad:'(7.7%)',sol:'P = 4/52 = 0.0769 ≈ 0.077'},
       ]
     },
     biologia:{
       genetica:[
-        {tipo:'Cuadro Punnett',enunciado:'Cruce Aa x Aa. Que porcentaje (%) seran homocigotos dominantes (AA)?',datos:'Cuadro de Punnett:\n  A   a\nA AA  Aa\na Aa  aa\nContar los AA',resp:'25',unidad:'%',sol:'Resultados: 1AA + 2Aa + 1aa\nAA = 1/4 = 25%'},
+        {tipo:'Cuadro de Punnett',enunciado:'Cruce Aa × Aa. ¿Qué porcentaje (%) serán homocigotos dominantes (AA)?',datos:'Cuadro Punnett:\n  A   a\nA AA  Aa\na Aa  aa\nContar los AA',resp:'25',unidad:'%',sol:'1AA + 2Aa + 1aa\nAA = 1/4 = 25%'},
       ]
     },
     salud:{
       hipertension:[
-        {tipo:'IMC',enunciado:'Paciente: 68 kg, 1.70 m. Calcula su IMC.',datos:'IMC = Peso(kg) / Talla(m)2\n1.70 x 1.70 = 2.89',resp:'23.5',unidad:'kg/m2',sol:'IMC = 68 / 2.89 = 23.5 kg/m2\nNormal (18.5-24.9)'},
+        {tipo:'Cálculo IMC',enunciado:'Paciente: 68 kg, 1.70 m. Calcula su IMC.',datos:'IMC = Peso(kg) / Talla²(m)\n1.70 × 1.70 = 2.89',resp:'23.5',unidad:'kg/m²',sol:'IMC = 68 / 2.89 = 23.5 kg/m²\nClasificación: NORMAL (18.5−24.9)'},
       ],
       diabetes:[
-        {tipo:'Clasificacion glucosa',enunciado:'Glucosa ayunas 115 mg/dL. Como se clasifica? (normal=1, prediabetes=2, diabetes=3)',datos:'Normal: 70-99 mg/dL\nPrediabetes: 100-125 mg/dL\nDiabetes: >=126 mg/dL',resp:'2',unidad:'',sol:'115 esta entre 100-125 = PREDIABETES (2)'},
+        {tipo:'Clasificación Glucosa',enunciado:'Glucosa ayunas = 115 mg/dL. ¿Cómo se clasifica? (1=normal, 2=prediabetes, 3=diabetes)',datos:'Normal: 70−99 mg/dL\nPrediabetes: 100−125 mg/dL\nDiabetes: ≥126 mg/dL',resp:'2',unidad:'',sol:'115 está entre 100−125 → PREDIABETES (2)'},
       ]
     }
   };
-
   var mDB=DB[mat]||{};
-  for(var k in mDB){
-    if(t.includes(k)) return mDB[k];
-  }
+  for(var k in mDB){if(t.includes(k))return mDB[k];}
   return [];
 }
 
-/* ── UTILS ── */
+/* ══ UTILS ══ */
 function fmt(txt){
   return (txt||'')
     .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
     .replace(/\*(.*?)\*/g,'<strong>$1</strong>');
 }
-
 function enviarWA(){
-  if(!textoWA) return;
+  if(!textoWA)return;
   window.open('https://wa.me/?text='+encodeURIComponent(textoWA),'_blank');
 }
-
 async function copiar(){
-  if(!textoWA) return;
+  if(!textoWA)return;
   try{
     await navigator.clipboard.writeText(textoWA);
     var b=document.getElementById('btnCopy');
-    b.textContent='Copiado!';
-    setTimeout(function(){b.textContent='Copiar texto';},2200);
-  }catch(e){
-    alert('Selecciona el texto manualmente para copiarlo.');
-  }
+    b.textContent='✅ ¡Copiado!';
+    setTimeout(function(){b.textContent='📋 Copiar texto completo';},2200);
+  }catch(e){alert('Selecciona el texto manualmente para copiarlo.');}
 }
-
 document.getElementById('temaInput').addEventListener('keydown',function(e){
   if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();generar();}
 });
-
 renderTopics();
 </script>
 </body>
